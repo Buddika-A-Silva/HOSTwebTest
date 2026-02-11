@@ -7,23 +7,29 @@
     if(!c){ c = document.createElement('div'); c.className = 'floating-images'; g.appendChild(c); }
     return c;
   }
-  function placeImage(container, src, idx){
-    var img = document.createElement('img');
-    img.className = 'floating-img';
-    img.src = src;
-    // random size class
-    var sizes = ['small','medium','large'];
-    img.classList.add(sizes[Math.floor(Math.random()*sizes.length)]);
-    // random position (allow overflow so images can overlap and sit partially off-canvas)
-    var left = (Math.random()*130 - 15).toFixed(2) + '%'; // range: -15% .. 115%
-    var top = (Math.random()*110 - 10).toFixed(2) + '%'; // range: -10% .. 100%
-    img.style.left = left;
-    img.style.top = top;
-    // animation timing
-    var dur = 20 + Math.round(Math.random()*40);
-    img.style.setProperty('--dur', dur + 's');
-    img.style.setProperty('--delay', (-Math.random()*dur).toFixed(2) + 's');
-    container.appendChild(img);
+  // Build a slow crossfading slideshow instead of many floating images
+  function buildSlideshow(container, list){
+    // remove existing slideshow if present
+    var existing = container.querySelector('.slideshow');
+    if(existing) existing.remove();
+    var slideshow = document.createElement('div');
+    slideshow.className = 'slideshow';
+    // slide duration per image (seconds)
+    var slideDuration = 12;
+    var total = slideDuration * Math.max(1, list.length);
+    list.forEach(function(p, i){
+      var img = document.createElement('img');
+      img.className = 'slide';
+      img.src = p.indexOf('assets/')===0 ? p : ('assets/' + p);
+      img.style.setProperty('--total', total + 's');
+      img.style.setProperty('--delay', (i * slideDuration) + 's');
+      // gentle variety in max-width
+      if(i % 3 === 0) img.style.maxWidth = '80%';
+      if(i % 3 === 1) img.style.maxWidth = '65%';
+      if(i % 3 === 2) img.style.maxWidth = '45%';
+      slideshow.appendChild(img);
+    });
+    container.appendChild(slideshow);
   }
 
   // Embedded manifest (falls back to fetch if empty)
@@ -42,10 +48,8 @@
       // use embedded manifest when available (works with file://)
       var list = Array.isArray(EMBED_MANIFEST) && EMBED_MANIFEST.length ? EMBED_MANIFEST : null;
       if(list){
-        list.forEach(function(p,i){
-          var src = p.indexOf('assets/')===0 ? p : ('assets/' + p);
-          placeImage(container, src, i);
-        });
+        // build a single slideshow
+        buildSlideshow(container, list);
         return;
       }
       try{
@@ -53,10 +57,8 @@
         if(!res.ok) return;
         var fetched = await res.json();
         if(!Array.isArray(fetched) || fetched.length===0) return;
-        fetched.forEach(function(p,i){
-          var src = p.indexOf('assets/')===0 ? p : ('assets/' + p);
-          placeImage(container, src, i);
-        });
+        // build slideshow from fetched manifest
+        buildSlideshow(container, fetched);
       }catch(e){
         // graceful fallback: nothing
         return;
