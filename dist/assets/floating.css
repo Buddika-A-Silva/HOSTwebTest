@@ -1,9 +1,9 @@
 /* Floating background images styles */
 .floating-images{position:absolute;left:0;top:0;right:0;bottom:0;pointer-events:none;z-index:1;overflow:visible}
-.floating-img{position:absolute;will-change:transform,opacity;pointer-events:none;opacity:0.38;filter:blur(2px);max-width:640px;max-height:640px;transform-origin:center center;mix-blend-mode:screen}
-.floating-img.small{max-width:220px;max-height:220px}
-.floating-img.medium{max-width:420px;max-height:420px}
-.floating-img.large{max-width:720px;max-height:720px}
+.floating-img{position:absolute;will-change:transform,opacity;pointer-events:none;opacity:0.85;filter:blur(1px);max-width:2000px;max-height:2000px;transform-origin:center center;mix-blend-mode:screen}
+.floating-img.small{max-width:420px;max-height:420px}
+.floating-img.medium{max-width:1100px;max-height:1100px}
+.floating-img.large{max-width:2600px;max-height:2600px}
 
 @keyframes floatAround {
   0%{transform:translate3d(var(--x,0),var(--y,0),0) translateY(0) rotate(0deg)}
