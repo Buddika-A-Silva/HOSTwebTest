@@ -1,0 +1,29 @@
+:root{
+  --gold: #d4af37;
+  --bg: #0b0b0b;
+  --muted: #d9d0be;
+  --card-bg: #111111;
+  --container-width: 1100px;
+}
+*{box-sizing:border-box}
+body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; color:var(--muted); background:linear-gradient(180deg,#070707 0%, #0f0f0f 100%)}
+.container{max-width:var(--container-width);margin:0 auto;padding:28px}
+.site-header{background:linear-gradient(90deg,#000 0%, rgba(0,0,0,0.25) 100%);border-bottom:3px solid rgba(212,175,55,0.06);position:sticky;top:0;z-index:50}
+.site-header .container{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:14px;color:var(--gold);text-decoration:none}
+.brand img{height:56px;width:auto;border-radius:6px;box-shadow:0 6px 20px rgba(0,0,0,0.6)}
+.brand span{font-weight:700;font-size:20px;letter-spacing:0.6px;color:var(--gold)}
+.main-nav a{margin-left:18px;color:var(--muted);text-decoration:none;font-weight:600}
+.main-nav a:hover{color:var(--gold)}
+.hero{padding:100px 0;text-align:center;background:linear-gradient(180deg, rgba(212,175,55,0.03), transparent)}
+.hero h1{font-size:44px;color:var(--gold);margin:0 0 10px}
+.lead{font-size:18px;color:#e9dfc8}
+.btn{display:inline-block;background:var(--gold);color:#111;padding:12px 22px;border-radius:8px;text-decoration:none;font-weight:700}
+.section{padding:64px 0}
+.section.alt{background:linear-gradient(180deg, rgba(212,175,55,0.02), transparent)}
+.section h2{color:var(--gold);margin-top:0}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:18px}
+.card{background:var(--card-bg);padding:18px;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.6);text-align:center}
+.avatar{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#b5812b);display:inline-flex;align-items:center;justify-content:center;font-weight:700;color:#111;margin:0 auto 12px}
+.site-footer{border-top:1px solid rgba(255,255,255,0.03);padding:20px 0;margin-top:48px;text-align:center;color:#aaa}
+@media(max-width:800px){.brand span{display:none}.main-nav{display:none}}
