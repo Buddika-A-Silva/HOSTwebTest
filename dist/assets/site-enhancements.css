@@ -1,0 +1,31 @@
+/* Site enhancements: hero animations, logo animation, parallax, carousel */
+:root{--accent:#6EC1E4;--muted:#6b6b6b;--bg:#FBFBFD}
+/* Hero */
+.hero{position:relative;overflow:hidden;padding:80px 0;background:linear-gradient(180deg,#f6fbff 0%, #ffffff 100%);}
+.hero::before{content:"";position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse at center, rgba(110,193,228,0.12) 0%, transparent 40%);
+  transform:translateY(0);transition:transform 0.2s linear;pointer-events:none}
+.hero .container{position:relative;z-index:2}
+.hero h1{font-size:48px;margin:0 0 16px;opacity:0;transform:translateY(18px);animation:fadeUp 700ms ease forwards}
+.hero p.lead{font-size:18px;color:var(--muted);margin-bottom:18px;opacity:0;transform:translateY(18px);animation:fadeUp 700ms ease 160ms forwards}
+.hero .btn{display:inline-block;background:var(--accent);color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;transform-origin:center;opacity:0;transform:translateY(18px);animation:fadeUp 700ms ease 320ms forwards}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+
+/* Logo animation */
+.brand img{width:60px;height:60px;object-fit:contain;display:inline-block;vertical-align:middle;transition:transform 350ms cubic-bezier(.22,.9,.32,1)}
+.brand img.logo-animated{animation:logoBounce 3000ms ease-in-out infinite}
+@keyframes logoBounce{0%{transform:translateY(0) scale(1)}40%{transform:translateY(-6px) scale(1.02)}70%{transform:translateY(0) scale(1)}100%{transform:translateY(0) scale(1)}}
+.brand:hover img{transform:scale(1.06) rotate(0.001deg)}
+
+/* Simple carousel */
+.blog-carousel{position:relative;display:block;overflow:hidden}
+.blog-slides{display:flex;gap:16px;transition:transform 400ms ease}
+.blog-slide{min-width:100%;box-sizing:border-box;padding:20px;background:#fff;border-radius:8px;box-shadow:0 6px 18px rgba(22,22,22,0.06)}
+.carousel-controls{display:flex;gap:8px;justify-content:center;margin-top:12px}
+.carousel-controls button{background:#fff;border:1px solid #eee;padding:8px 12px;border-radius:6px;cursor:pointer}
+
+/* Responsive tweaks */
+@media(min-width:900px){.hero h1{font-size:64px}.brand img{width:72px;height:72px}}
+
+/* Micro interactions */
+.main-nav a{transition:color .18s ease,transform .18s ease}
+.main-nav a:hover{color:var(--accent);transform:translateY(-3px)}

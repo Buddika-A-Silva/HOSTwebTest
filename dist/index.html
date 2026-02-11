@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Leo Club of Colombo HOST</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="assets/site-enhancements.css">
   <link rel="stylesheet" href="assets/divi.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container">
       <a class="brand" href="#">
-        <img src="../Leo Club of IIT – Official Website of Leo Club of IIT_files/Leo-Club-of-IIT-Updated-Logo-1.png" alt="Leo Club of Colombo HOST logo">
+        <img class="logo-animated" src="../Leo Club of IIT – Official Website of Leo Club of IIT_files/Leo-Club-of-IIT-Updated-Logo-1.png" alt="Leo Club of Colombo HOST logo">
         <span>Leo Club of Colombo HOST</span>
       </a>
       <nav class="main-nav">
@@ -61,7 +62,26 @@
     <section id="blog" class="section alt">
       <div class="container">
         <h2>Blog & News</h2>
-        <p>Latest updates and photo-recaps from our events. Visit the original site or the exported pages for full posts.</p>
+        <div class="blog-carousel">
+          <div class="blog-slides">
+            <article class="blog-slide">
+              <h3>Community Childcare Initiative</h3>
+              <p>We run ongoing childcare support sessions in partnership with local centers.</p>
+            </article>
+            <article class="blog-slide">
+              <h3>Eldercare Outreach</h3>
+              <p>Volunteers visit eldercare homes and provide companionship and support.</p>
+            </article>
+            <article class="blog-slide">
+              <h3>Educational Workshops</h3>
+              <p>Free tutoring and skills workshops for underprivileged students.</p>
+            </article>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-prev">Prev</button>
+            <button class="carousel-next">Next</button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -136,5 +156,6 @@
       <small>© Leo Club of Colombo HOST</small>
     </div>
   </footer>
+  <script src="assets/site-enhancements.js"></script>
 </body>
 </html>
