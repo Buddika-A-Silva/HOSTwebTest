@@ -14,13 +14,13 @@
     // random size class
     var sizes = ['small','medium','large'];
     img.classList.add(sizes[Math.floor(Math.random()*sizes.length)]);
-    // random position (constrained ranges so images remain within hero)
-    var left = (Math.random()*70 + 8).toFixed(2) + '%';
-    var top = (Math.random()*55 + 8).toFixed(2) + '%';
+    // random position (allow overflow so images can overlap and sit partially off-canvas)
+    var left = (Math.random()*130 - 15).toFixed(2) + '%'; // range: -15% .. 115%
+    var top = (Math.random()*110 - 10).toFixed(2) + '%'; // range: -10% .. 100%
     img.style.left = left;
     img.style.top = top;
     // animation timing
-    var dur = 12 + Math.round(Math.random()*28);
+    var dur = 20 + Math.round(Math.random()*40);
     img.style.setProperty('--dur', dur + 's');
     img.style.setProperty('--delay', (-Math.random()*dur).toFixed(2) + 's');
     container.appendChild(img);

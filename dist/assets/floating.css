@@ -1,9 +1,9 @@
 /* Floating background images styles */
-.floating-images{position:absolute;left:0;top:0;right:0;bottom:0;pointer-events:none;z-index:0;overflow:hidden}
-.floating-img{position:absolute;will-change:transform,opacity;pointer-events:none;opacity:0.24;filter:blur(6px);max-width:320px;max-height:320px;transform-origin:center center;mix-blend-mode:screen}
-.floating-img.small{max-width:120px;max-height:120px}
-.floating-img.medium{max-width:200px;max-height:200px}
-.floating-img.large{max-width:300px;max-height:300px}
+.floating-images{position:absolute;left:0;top:0;right:0;bottom:0;pointer-events:none;z-index:1;overflow:visible}
+.floating-img{position:absolute;will-change:transform,opacity;pointer-events:none;opacity:0.38;filter:blur(2px);max-width:640px;max-height:640px;transform-origin:center center;mix-blend-mode:screen}
+.floating-img.small{max-width:220px;max-height:220px}
+.floating-img.medium{max-width:420px;max-height:420px}
+.floating-img.large{max-width:720px;max-height:720px}
 
 @keyframes floatAround {
   0%{transform:translate3d(var(--x,0),var(--y,0),0) translateY(0) rotate(0deg)}
@@ -11,12 +11,12 @@
   100%{transform:translate3d(var(--x,0),var(--y,0),0) translateY(0) rotate(0deg)}
 }
 
-.floating-img{animation-name:floatAround;animation-timing-function:ease-in-out;animation-iteration-count:infinite;animation-duration:var(--dur,28s);animation-delay:var(--delay,0s);will-change:transform}
+.floating-img{animation-name:floatAround;animation-timing-function:ease-in-out;animation-iteration-count:infinite;animation-duration:var(--dur,36s);animation-delay:var(--delay,0s);will-change:transform}
 
 @media (max-width:900px){
   .floating-img{opacity:0.16;filter:blur(6px);display:none}
 }
 
-.floating-images.visible-debug .floating-img{opacity:0.9;filter:blur(2px);mix-blend-mode:normal;box-shadow:0 8px 40px rgba(0,0,0,0.35)}
+.floating-images.visible-debug .floating-img{opacity:0.98;filter:none;mix-blend-mode:normal;box-shadow:0 12px 60px rgba(0,0,0,0.45)}
 /* ensure images are visually distinct in debug mode */
 .floating-images.visible-debug{outline: none}
