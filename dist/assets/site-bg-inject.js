@@ -20,15 +20,31 @@
     var wrapper = document.createElement('div');
     wrapper.className = 'bg-graphics';
     wrapper.setAttribute('aria-hidden','true');
-    wrapper.innerHTML = '<div class="bg-shape shape-1"></div><div class="bg-shape shape-2"></div><div class="bg-shape shape-3"></div><div class="bg-shape shape-4"></div>';
+    wrapper.innerHTML = '<div class="bg-shape shape-1"></div><div class="bg-shape shape-2"></div><div class="bg-shape shape-3"></div><div class="bg-shape shape-4"></div><div class="floating-images" aria-hidden="true"></div>';
     // insert as first child of body
     var b = document.body;
     if(b.firstChild) b.insertBefore(wrapper, b.firstChild); else b.appendChild(wrapper);
   }
   document.addEventListener('DOMContentLoaded', function(){
     ensureCss();
+    ensureFloatingCss();
     injectBgGraphics();
     // load hero JS to draw canvas blobs if heroCanvas present on page
     ensureHeroJs();
+    ensureFloatingJs();
   });
+  function ensureFloatingCss(){
+    if(document.querySelector('link[href*="floating.css"]')) return;
+    var l = document.createElement('link');
+    l.rel = 'stylesheet';
+    l.href = 'assets/floating.css';
+    document.head.appendChild(l);
+  }
+  function ensureFloatingJs(){
+    if(document.querySelector('script[src*="floating.js"]')) return;
+    var s = document.createElement('script');
+    s.src = 'assets/floating.js';
+    s.defer = true;
+    document.body.appendChild(s);
+  }
 })();

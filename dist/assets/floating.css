@@ -1,0 +1,18 @@
+/* Floating background images styles */
+.floating-images{position:absolute;left:0;top:0;right:0;bottom:0;pointer-events:none;z-index:1;overflow:visible}
+.floating-img{position:absolute;will-change:transform,opacity;pointer-events:none;opacity:0.14;filter:blur(6px);max-width:420px;max-height:420px;transform-origin:center center;mix-blend-mode:screen}
+.floating-img.small{max-width:220px;max-height:220px}
+.floating-img.medium{max-width:320px;max-height:320px}
+.floating-img.large{max-width:520px;max-height:520px}
+
+@keyframes floatAround {
+  0%{transform:translate3d(var(--x,0),var(--y,0),0) translateY(0) rotate(0deg)}
+  50%{transform:translate3d(calc(var(--x,0) + 8px),calc(var(--y,0) - 28px),0) translateY(-18px) rotate(8deg)}
+  100%{transform:translate3d(var(--x,0),var(--y,0),0) translateY(0) rotate(0deg)}
+}
+
+.floating-img{animation-name:floatAround;animation-timing-function:ease-in-out;animation-iteration-count:infinite;animation-duration:var(--dur,28s);animation-delay:var(--delay,0s)}
+
+@media (max-width:900px){
+  .floating-img{opacity:0.10;filter:blur(4px)}
+}
