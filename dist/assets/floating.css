@@ -23,8 +23,9 @@
 .floating-images.visible-debug{outline: none}
 
 /* Slideshow (replaces floating images) */
-.slideshow{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:100%;height:100%;pointer-events:none;z-index:0;overflow:visible;display:block}
-.slideshow .slide{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);max-width:1400px;width:60%;height:auto;opacity:0;filter:blur(2px);mix-blend-mode:screen;transition:opacity 1.2s ease,filter 1.2s ease}
+/* Slideshow sits full-bleed under the hero content and presents a rotated image on the right */
+.slideshow{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:visible;display:block}
+.slideshow .slide{position:absolute;right:-8%;top:-10%;width:60%;height:120%;object-fit:cover;opacity:0;filter:blur(2px);mix-blend-mode:screen;transform:rotate(-8deg);transition:opacity 1.2s ease,filter 1.2s ease}
 .slideshow .slide.show{opacity:1;filter:none}
 @keyframes slideFade {
   0%{opacity:0}
@@ -33,7 +34,7 @@
   50%{opacity:0}
   100%{opacity:0}
 }
-.slideshow .slide{animation-name:slideFade;animation-timing-function:linear;animation-iteration-count:infinite;animation-duration:var(--total,24s);animation-delay:var(--delay,0s)}
+.slideshow .slide{animation-name:slideFade;animation-timing-function:linear;animation-iteration-count:infinite;animation-duration:var(--total,36s);animation-delay:var(--delay,0s)}
 
 @media (max-width:900px){
   .slideshow .slide{display:none}
