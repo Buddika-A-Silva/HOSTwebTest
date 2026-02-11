@@ -8,3 +8,18 @@
 .hero .lead{color:rgba(255,255,255,0.95);max-width:780px;margin:12px auto}
 .hero-video-effect::after{content:"";position:absolute;left:0;top:0;right:0;bottom:0;background:linear-gradient(180deg,rgba(0,0,0,0.25),rgba(0,0,0,0.45));pointer-events:none;z-index:2}
 @media (max-width:700px){.hero-video-effect{height:420px}.hero-logo{max-width:120px;width:28vw}.hero-content{padding-top:60px}}
+
+/* Layered background graphics */
+.bg-graphics{position:absolute;left:0;top:0;right:0;bottom:0;pointer-events:none;z-index:1;overflow:hidden}
+.bg-shape{position:absolute;border-radius:50%;filter:blur(36px);opacity:0.9;mix-blend-mode:screen;transform-origin:center center}
+.bg-shape.shape-1{width:520px;height:520px;left:-10%;top:10%;background:radial-gradient(circle at 30% 30%, rgba(255,200,120,0.95), rgba(200,120,40,0.12));animation:float-1 16s ease-in-out infinite}
+.bg-shape.shape-2{width:420px;height:420px;right:-8%;top:20%;background:radial-gradient(circle at 70% 40%, rgba(120,200,255,0.95), rgba(30,100,200,0.08));animation:float-2 18s ease-in-out infinite}
+.bg-shape.shape-3{width:360px;height:360px;left:15%;bottom:-6%;background:radial-gradient(circle at 40% 70%, rgba(200,140,255,0.9), rgba(120,40,200,0.06));animation:float-3 20s ease-in-out infinite}
+.bg-shape.shape-4{width:260px;height:260px;right:18%;bottom:8%;background:radial-gradient(circle at 50% 50%, rgba(180,250,200,0.9), rgba(40,160,100,0.06));animation:float-4 22s ease-in-out infinite}
+
+@keyframes float-1{0%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(22px) rotate(14deg)}100%{transform:translateY(0) rotate(0deg)}}
+@keyframes float-2{0%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-28px) rotate(-10deg)}100%{transform:translateY(0) rotate(0deg)}}
+@keyframes float-3{0%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(18px) rotate(8deg)}100%{transform:translateY(0) rotate(0deg)}}
+@keyframes float-4{0%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-14px) rotate(-6deg)}100%{transform:translateY(0) rotate(0deg)}}
+
+@media (max-width:900px){.bg-shape{filter:blur(28px)}.bg-shape.shape-1{width:360px;height:360px}.bg-shape.shape-2{width:300px;height:300px}.bg-shape.shape-3{width:260px;height:260px}.bg-shape.shape-4{width:200px;height:200px}}

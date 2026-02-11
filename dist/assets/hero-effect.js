@@ -32,6 +32,25 @@
     ctx.fillStyle = g;
     ctx.fillRect(0,0,width,height);
 
+    // draw soft glowing blobs behind particles
+    if(blobs){
+      for(let b of blobs){
+        b.x += b.vx; b.y += b.vy; b.vx += (Math.random()-0.5)*0.01*devicePixelRatio; b.vy += (Math.random()-0.5)*0.01*devicePixelRatio;
+        if(b.x < -b.r) b.x = width + b.r;
+        if(b.x > width + b.r) b.x = -b.r;
+        if(b.y < -b.r) b.y = height + b.r;
+        if(b.y > height + b.r) b.y = -b.r;
+        const rg = ctx.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r*2);
+        rg.addColorStop(0,b.colorStart);
+        rg.addColorStop(0.6,b.colorMid);
+        rg.addColorStop(1,'rgba(0,0,0,0)');
+        ctx.globalCompositeOperation = 'lighter';
+        ctx.fillStyle = rg;
+        ctx.beginPath(); ctx.arc(b.x,b.y,b.r*2,0,Math.PI*2); ctx.fill();
+        ctx.globalCompositeOperation = 'source-over';
+      }
+    }
+
     // draw particles
     for(let p of particles){
       p.x += p.vx;
@@ -66,6 +85,25 @@
   function start(){
     resize();
     makeParticles(Math.max(40, Math.floor((width*height)/(90000))));
+    // create large soft blobs
+    blobs = [];
+    const centerColors = [
+      {start:'rgba(255,200,120,0.22)',mid:'rgba(255,160,60,0.08)'},
+      {start:'rgba(120,200,255,0.20)',mid:'rgba(60,120,200,0.06)'},
+      {start:'rgba(200,140,255,0.18)',mid:'rgba(140,60,200,0.05)'}
+    ];
+    for(let i=0;i<3;i++){
+      const c = centerColors[i%centerColors.length];
+      blobs.push({
+        x: Math.random()*width,
+        y: Math.random()*height,
+        r: Math.max(width,height)*0.18*(0.8+Math.random()*0.6),
+        vx: (Math.random()-0.5)*0.2*devicePixelRatio,
+        vy: (Math.random()-0.5)*0.2*devicePixelRatio,
+        colorStart: c.start,
+        colorMid: c.mid
+      });
+    }
     draw();
   }
 
