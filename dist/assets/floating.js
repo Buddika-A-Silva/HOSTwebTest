@@ -66,4 +66,13 @@
   document.addEventListener('DOMContentLoaded', function(){
       loadList();
     });
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () {
+      loadList();
+    });
+  } else {
+    // DOMContentLoaded already fired (script was injected after parsing)
+    // call loadList immediately so floating images are created.
+    loadList();
+  }
 })();
