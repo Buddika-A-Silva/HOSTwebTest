@@ -17,4 +17,6 @@
   .floating-img{opacity:0.16;filter:blur(6px);display:none}
 }
 
-.floating-images.visible-debug .floating-img{opacity:0.45;filter:blur(2px)}
+.floating-images.visible-debug .floating-img{opacity:0.95;filter:none;mix-blend-mode:normal;box-shadow:0 8px 40px rgba(0,0,0,0.35)}
+/* ensure images are visually distinct in debug mode */
+.floating-images.visible-debug{outline: none}
