@@ -1,0 +1,10 @@
+/* Hero video-effect styles */
+.hero-video-effect{position:relative;height:520px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+#heroCanvas{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
+.hero-overlay{position:relative;z-index:2;width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;color:#fff}
+.hero-logo-wrap{position:absolute;left:50%;top:20px;transform:translateX(-50%);z-index:3}
+.hero-logo{max-width:170px;width:18vw;height:auto;filter:drop-shadow(0 6px 18px rgba(0,0,0,.45));}
+.hero-content{position:relative;z-index:4;padding-top:80px}
+.hero .lead{color:rgba(255,255,255,0.95);max-width:780px;margin:12px auto}
+.hero-video-effect::after{content:"";position:absolute;left:0;top:0;right:0;bottom:0;background:linear-gradient(180deg,rgba(0,0,0,0.25),rgba(0,0,0,0.45));pointer-events:none;z-index:2}
+@media (max-width:700px){.hero-video-effect{height:420px}.hero-logo{max-width:120px;width:28vw}.hero-content{padding-top:60px}}
