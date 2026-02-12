@@ -13,23 +13,27 @@
   <meta name="theme-color" content="#ffffff">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <a class="brand" href="#">
-        <img class="logo-animated" src="dist/assets/logo.png" alt="Leo Club of Colombo HOST logo">
-        <span>Leo Club of Colombo HOST</span>
-      </a>
-      <nav class="main-nav">
-        <a href="#about">About</a>
-        <a href="#projects">Upcoming Project</a>
-        <a href="#team">Team</a>
-        <a href="#blog">Blog</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <div class="page-wrapper">
+    <aside class="site-sidebar">
+      <div class="sidebar-content">
+        <a class="brand" href="#">
+          <img class="logo-animated" src="dist/assets/logo.png" alt="Leo Club of Colombo HOST logo">
+          <span>Leo Club of Colombo HOST</span>
+        </a>
+        <nav class="main-nav">
+          <a href="#about">About</a>
+          <a href="#projects">Upcoming Project</a>
+          <a href="#team">Team</a>
+          <a href="#blog">Blog</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+      <div class="sidebar-footer">
+        <small>© Leo Club of Colombo HOST</small>
+      </div>
+    </aside>
 
-  <main>
+    <main class="site-main">
     <section id="hero" class="hero">
       <div class="hero-video-effect">
         <canvas id="heroCanvas"></canvas>
@@ -141,12 +145,7 @@
       </div>
     </section>
   </main>
-
-  <footer class="site-footer">
-      <div class="container">
-      <small>© Leo Club of Colombo HOST</small>
-    </div>
-  </footer>
+  </div>
   <script src="dist/assets/site-enhancements.js"></script>
   <script src="dist/assets/hero-effect.js"></script>
   <script src="dist/assets/site-bg-inject.js"></script>

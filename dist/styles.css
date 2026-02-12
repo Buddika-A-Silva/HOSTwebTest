@@ -4,19 +4,22 @@
   --muted: #d9d0be;
   --card-bg: #111111;
   --container-width: 1100px;
+  --sidebar-width: 320px;
 }
 *{box-sizing:border-box}
 body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; color:var(--muted); background:linear-gradient(180deg,#070707 0%, #0f0f0f 100%)}
+.page-wrapper{display:flex;min-height:100vh}
+.site-sidebar{position:fixed;left:0;top:0;width:var(--sidebar-width);height:100vh;background:linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 100%);border-right:2px solid rgba(212,175,55,0.1);display:flex;flex-direction:column;padding:32px 24px;}
+.sidebar-content{flex:1}
+.site-sidebar .brand{display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--gold);text-decoration:none;margin-bottom:48px;text-align:center}
+.site-sidebar .brand img{height:80px;width:80px;border-radius:50%;border:3px solid var(--gold);box-shadow:0 6px 20px rgba(0,0,0,0.6)}
+.site-sidebar .brand span{font-weight:700;font-size:16px;letter-spacing:0.6px;color:var(--gold)}
+.main-nav{display:flex;flex-direction:column;gap:18px}
+.main-nav a{color:var(--muted);text-decoration:none;font-weight:600;padding:10px 0;border-left:3px solid transparent;padding-left:12px;transition:all 0.3s}
+.main-nav a:hover{color:var(--gold);border-left-color:var(--gold)}
+.sidebar-footer{border-top:1px solid rgba(212,175,55,0.1);padding-top:18px;text-align:center;color:#777;font-size:12px}
+.site-main{margin-left:var(--sidebar-width);flex:1;padding:0}
 .container{max-width:var(--container-width);margin:0 auto;padding:28px}
-.site-header{background:linear-gradient(90deg,#000 0%, rgba(0,0,0,0.25) 100%);border-bottom:3px solid rgba(212,175,55,0.06);position:sticky;top:0;z-index:50}
-.site-header .header-grid{display:flex;flex-direction:row;align-items:center;justify-content:flex-start;gap:24px;width:100%;padding:0}
-.header-left{flex:0 0 auto;display:flex;gap:0}
-.header-right{flex:1;display:flex;align-items:center;justify-content:flex-end;gap:14px}
-.brand{display:flex;align-items:center;gap:14px;color:var(--gold);text-decoration:none}
-.brand img{height:56px;width:auto;border-radius:6px;box-shadow:0 6px 20px rgba(0,0,0,0.6)}
-.brand span{font-weight:700;font-size:20px;letter-spacing:0.6px;color:var(--gold)}
-.main-nav a{margin-right:18px;color:var(--muted);text-decoration:none;font-weight:600}
-.main-nav a:hover{color:var(--gold)}
 .hero{padding:100px 0;text-align:center;background:linear-gradient(180deg, rgba(212,175,55,0.03), transparent)}
 .hero h1{font-size:44px;color:var(--gold);margin:0 0 10px}
 .lead{font-size:18px;color:#e9dfc8}
@@ -27,9 +30,18 @@ body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica
 .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:18px}
 .card{background:var(--card-bg);padding:18px;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.6);text-align:center}
 .avatar{width:220px;max-width:100%;aspect-ratio:1/1;border-radius:0;background:linear-gradient(135deg,var(--gold),#b5812b);display:inline-flex;align-items:center;justify-content:center;font-weight:700;color:#111;margin:0 auto 18px;overflow:hidden;border:4px solid var(--gold);box-sizing:border-box}
-.site-footer{border-top:1px solid rgba(255,255,255,0.03);padding:20px 0;margin-top:48px;text-align:center;color:#aaa}
-@media(max-width:900px){
-  .brand span{display:none}
-  .main-nav{display:none}
-  .header-left{display:none}
+@media(max-width:1024px){
+  .site-sidebar{width:280px}
+  .site-main{margin-left:280px}
+  :root{--sidebar-width:280px}
+}
+@media(max-width:768px){
+  .page-wrapper{flex-direction:column}
+  .site-sidebar{position:static;width:100%;height:auto;border-right:none;border-bottom:2px solid rgba(212,175,55,0.1);flex-direction:row;align-items:center;justify-content:space-between;padding:20px}
+  .sidebar-content{display:flex;align-items:center;gap:30px;flex:1}
+  .site-sidebar .brand{margin-bottom:0}
+  .main-nav{flex-direction:row;gap:12px}
+  .main-nav a{padding:8px 12px;border-left:none;border-bottom:2px solid transparent}
+  .main-nav a:hover{border-left:none;border-bottom-color:var(--gold)}
+  .site-main{margin-left:0}
 }
