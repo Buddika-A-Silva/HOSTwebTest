@@ -122,7 +122,40 @@
             <p>The Leo Club of Colombo (Host), established in 1969, is a prestigious community-based Omega Leo Club sponsored by the Lions Club of Colombo. It focuses on community service and leadership development, engaging in various initiatives aimed at the betterment of the community, including childcare, eldercare, and educational projects. The club emphasizes teamwork, innovation, and compassion, fostering personal growth and meaningful contributions to society. For more information, you can visit their official LinkedIn page.</p>
           </div>
           <div class="image-box">
-            <img src="dist/assets/images/Untitled design.png" alt="Leo Club Logo" style="max-width:400px;height:auto;display:block;margin:0 auto;">
+            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;display:block;margin:0 auto;">
+              <!-- Background gradient circle -->
+              <defs>
+                <linearGradient id="leonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+                </linearGradient>
+              </defs>
+              <circle cx="200" cy="140" r="130" fill="url(#leonGrad)" opacity="0.15"/>
+              
+              <!-- Lion head -->
+              <g transform="translate(200, 100)">
+                <!-- Head circle -->
+                <circle cx="0" cy="0" r="50" fill="#FFA500" stroke="#8B4513" stroke-width="2"/>
+                <!-- Mane -->
+                <circle cx="-35" cy="-15" r="20" fill="#FFD700" stroke="#8B4513" stroke-width="1.5"/>
+                <circle cx="35" cy="-15" r="20" fill="#FFD700" stroke="#8B4513" stroke-width="1.5"/>
+                <circle cx="-30" cy="20" r="18" fill="#FFD700" stroke="#8B4513" stroke-width="1.5"/>
+                <circle cx="30" cy="20" r="18" fill="#FFD700" stroke="#8B4513" stroke-width="1.5"/>
+                <!-- Eyes -->
+                <circle cx="-15" cy="-8" r="6" fill="#333"/>
+                <circle cx="15" cy="-8" r="6" fill="#333"/>
+                <circle cx="-13" cy="-10" r="2" fill="#fff"/>
+                <circle cx="17" cy="-10" r="2" fill="#fff"/>
+                <!-- Nose -->
+                <ellipse cx="0" cy="5" rx="5" ry="6" fill="#333"/>
+                <!-- Mouth -->
+                <path d="M 0 5 L -8 15 M 0 5 L 8 15" stroke="#333" stroke-width="2" fill="none" stroke-linecap="round"/>
+              </g>
+              
+              <!-- Club name below -->
+              <text x="200" y="260" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">LEO CLUB OF COLOMBO</text>
+              <text x="200" y="280" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#666">(HOST) • Est. 1969</text>
+            </svg>
           </div>
         </div>
       </div>
