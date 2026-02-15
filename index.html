@@ -11,6 +11,58 @@
   <link rel="icon" href="dist/assets/logo.png" sizes="32x32">
   <link rel="apple-touch-icon" href="dist/assets/logo.png">
   <meta name="theme-color" content="#ffffff">
+  <style>
+    /* Gallery grid and responsive layout */
+    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+    .gallery-item{overflow:visible}
+    /* Decorative frame wrapper */
+    .gallery-item .frame{display:block;padding:10px;border-radius:12px;background:linear-gradient(135deg,#ffffff 0%,#fbfbfd 100%);box-shadow:0 10px 20px rgba(17,24,39,0.06);transform:rotate(-1deg);transition:transform .22s,box-shadow .22s}
+    .gallery-item .frame:hover{transform:rotate(0deg) scale(1.02);box-shadow:0 18px 30px rgba(17,24,39,0.12)}
+    .gallery-item img{width:100%;height:180px;object-fit:cover;display:block;border-radius:8px}
+    /* hidden extra items */
+    .gallery-more{display:none}
+    /* Modal */
+    .gallery-modal{position:fixed;inset:0;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;padding:24px;z-index:9999;visibility:hidden;opacity:0;transition:opacity .2s}
+    .gallery-modal.open{visibility:visible;opacity:1}
+    .gallery-modal img{max-width:92%;max-height:92%;border-radius:6px;box-shadow:0 18px 40px rgba(0,0,0,.6)}
+    .gallery-close{position:absolute;right:18px;top:18px;color:#fff;font-size:22px;cursor:pointer}
+    /* See memories button - styled as gold badge with arrow */
+    #galleryToggle{
+      margin-top:0;
+      background:linear-gradient(135deg,#FFD700 0%,#FFC700 100%);
+      color:#333;
+      border:none;
+      padding:14px 32px;
+      border-radius:50px;
+      font-weight:700;
+      font-size:15px;
+      cursor:pointer;
+      box-shadow:0 6px 16px rgba(255,215,0,0.35);
+      transition:all .3s ease;
+      position:relative;
+      letter-spacing:0.5px;
+    }
+    #galleryToggle:hover{
+      transform:translateY(-3px);
+      box-shadow:0 12px 28px rgba(255,215,0,0.45);
+      background:linear-gradient(135deg,#FFED4E 0%,#FFD700 100%);
+    }
+    /* Full-screen gallery overlay */
+    #fullGalleryOverlay{position:fixed;inset:0;background:#111;z-index:8888;visibility:hidden;opacity:0;transition:opacity .3s;overflow-y:auto;padding:40px 20px}
+    #fullGalleryOverlay.active{visibility:visible;opacity:1}
+    .fullgallery-container{max-width:1200px;margin:0 auto}
+    .fullgallery-header{color:#fff;margin-bottom:30px;display:flex;justify-content:space-between;align-items:center}
+    .fullgallery-header h2{margin:0;font-size:2em}
+    .fullgallery-close-btn{background:none;border:none;color:#fff;font-size:28px;cursor:pointer}
+    .fullgallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px}
+    .fullgallery-item{overflow:visible}
+    .frame-style1{padding:12px;background:linear-gradient(135deg,#fff 0%,#f9f9fb 100%);border-radius:8px;box-shadow:0 8px 16px rgba(0,0,0,.15);transform:rotate(-2deg)}
+    .frame-style2{padding:8px;background:linear-gradient(45deg,#fff8f0 0%,#fff 100%);border-radius:4px;box-shadow:0 4px 8px rgba(0,0,0,.1);transform:rotate(1.5deg)}
+    .frame-style3{padding:10px;background:linear-gradient(180deg,#fffbf5 0%,#fff 100%);border-radius:12px;box-shadow:0 12px 24px rgba(0,0,0,.12);transform:rotate(-0.8deg)}
+    .frame-style4{padding:14px;background:linear-gradient(-45deg,#f5f5f7 0%,#fff 100%);border-radius:6px;box-shadow:0 6px 12px rgba(0,0,0,.08);transform:rotate(2deg)}
+    .frame-style5{padding:11px;background:linear-gradient(90deg,#fef9f3 0%,#fff 100%);border-radius:10px;box-shadow:0 10px 18px rgba(0,0,0,.1);transform:rotate(-1.2deg)}
+    .fullgallery-item img{width:100%;height:200px;object-fit:cover;display:block;border-radius:6px}
+  </style>
 </head>
 <body>
   <div class="page-wrapper">
@@ -19,6 +71,8 @@
         <a class="brand" href="#">
           <img class="logo-animated" src="dist/assets/logo.png" alt="Leo Club of Colombo HOST logo">
           <span>Leo Club of Colombo HOST</span>
+          <p>Since 1969</p>
+
         </a>
         <nav class="main-nav">
           <a href="#hero">Home</a>
@@ -26,6 +80,7 @@
           <a href="#projects">Upcoming Project</a>
           <a href="#team">Team</a>
           <a href="#blog">Blog</a>
+          <a href="#gallery">Gallery</a>
           <a href="#contact">Contact</a>
         </nav>
       </div>
@@ -56,6 +111,8 @@
         </div>
       </div>
     </section>
+
+    <!-- gallery temporarily moved; replaced later below blog -->
 
     <section id="about" class="section">
       <div class="container">
@@ -171,6 +228,36 @@
       </div>
     </section>
 
+    <!-- Photo gallery placed below the blog -->
+    <section id="gallery" class="section">
+      <div class="container">
+        <h2>Photo Gallery</h2>
+        <p>Memories from our club events — click any photo to enlarge.</p>
+        <div class="gallery-grid" id="galleryGrid">
+          <div class="gallery-item"><div class="frame"><img src="dist/assets/images/president.jpg" alt="gallery-1"></div></div>
+          <div class="gallery-item"><div class="frame"><img src="dist/assets/images/vise_president.jpeg" alt="gallery-2"></div></div>
+          <div class="gallery-item"><div class="frame"><img src="dist/assets/images/sec.png" alt="gallery-3"></div></div>
+          <div class="gallery-item"><div class="frame"><img src="dist/assets/images/ass_sec.png" alt="gallery-4"></div></div>
+          <div class="gallery-item"><div class="frame"><img src="dist/assets/images/Dir_of_Fin.jpeg" alt="gallery-5"></div></div>
+          <!-- extra images hidden by default -->
+          <div class="gallery-item gallery-more"><div class="frame"><img src="dist/assets/images/Tres.png" alt="gallery-6"></div></div>
+          <div class="gallery-item gallery-more"><div class="frame"><img src="dist/assets/images/ass_Tres.jpeg" alt="gallery-7"></div></div>
+          <div class="gallery-item gallery-more"><div class="frame"><img src="./Leo Club of IIT – Official Website of Leo Club of IIT_files/DSC_0244-scaled-767x982.jpg" alt="gallery-8"></div></div>
+          <div class="gallery-item gallery-more"><div class="frame"><img src="./Leo Club of IIT – Official Website of Leo Club of IIT_files/DSC_0207-scaled-767x982.jpg" alt="gallery-9"></div></div>
+          <div class="gallery-item gallery-more"><div class="frame"><img src="./Leo Club of IIT – Official Website of Leo Club of IIT_files/DSC_0213-scaled-767x982.jpg" alt="gallery-10"></div></div>
+          <div class="gallery-item gallery-more"><div class="frame"><img src="./Leo Club of IIT – Official Website of Leo Club of IIT_files/DSC_0201-scaled-767x982.jpg" alt="gallery-11"></div></div>
+          <div class="gallery-item gallery-more"><div class="frame"><img src="./Leo Club of IIT – Official Website of Leo Club of IIT_files/WhatsApp-Image-2025-07-30-at-20.53.34_979861bf-767x853.jpg" alt="gallery-12"></div></div>
+        <!--</div>
+        <div style="text-align:center;position:relative;margin-top:20px;">-->
+          <!--<svg style="position:absolute;bottom:50px;left:50%;transform:translateX(-50%);width:80px;height:60px;" viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M40 55 Q25 40 20 20" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M20 20 L16 28 M20 20 L28 18" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>-->
+          <p><button id="galleryToggle" class="btn">See memories</button></p>
+        </div>
+      </div>
+    </section>
+
     <section id="contact" class="section">
       <div class="container">
         <h2>Contact</h2>
@@ -202,5 +289,77 @@
   <script src="dist/assets/site-enhancements.js"></script>
   <script src="dist/assets/hero-effect.js"></script>
   <script src="dist/assets/site-bg-inject.js"></script>
+  <div id="galleryModal" class="gallery-modal" role="dialog" aria-hidden="true">
+    <div class="gallery-close" id="galleryClose">✕</div>
+    <img id="galleryModalImg" src="" alt="enlarged" />
+  </div>
+
+  <!-- Full-screen gallery overlay -->
+  <div id="fullGalleryOverlay">
+    <div class="fullgallery-container">
+      <div class="fullgallery-header">
+        <h2>Photo Memories</h2>
+        <button class="fullgallery-close-btn" id="fullGalleryClose">✕</button>
+      </div>
+      <div class="fullgallery-grid" id="fullGalleryGrid"></div>
+    </div>
+  </div>
+  <script>
+    // open modal on thumbnail click
+    document.querySelectorAll('.gallery-item img').forEach(img=>{
+      img.addEventListener('click',()=>{
+        const modal=document.getElementById('galleryModal');
+        const modalImg=document.getElementById('galleryModalImg');
+        modalImg.src=img.src; modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+      })
+    });
+    // close handlers
+    document.getElementById('galleryClose').addEventListener('click',()=>{const m=document.getElementById('galleryModal');m.classList.remove('open');m.setAttribute('aria-hidden','true');});
+    document.getElementById('galleryModal').addEventListener('click',(e)=>{if(e.target.id==='galleryModal') {e.currentTarget.classList.remove('open');e.currentTarget.setAttribute('aria-hidden','true');}});
+
+    // toggle to full-screen gallery
+    const toggleBtn=document.getElementById('galleryToggle');
+    if(toggleBtn){
+      toggleBtn.addEventListener('click',()=>{
+        const overlay=document.getElementById('fullGalleryOverlay');
+        overlay.classList.add('active');
+        const fullGrid=document.getElementById('fullGalleryGrid');
+        const allImgs=[
+          'dist/assets/images/president.jpg',
+          'dist/assets/images/vise_president.jpeg',
+          'dist/assets/images/sec.png',
+          'dist/assets/images/ass_sec.png',
+          'dist/assets/images/Dir_of_Fin.jpeg',
+          'dist/assets/images/Tres.png',
+          'dist/assets/images/ass_Tres.jpeg',
+          './Leo Club of IIT – Official Website of Leo Club of IIT_files/DSC_0244-scaled-767x982.jpg',
+          './Leo Club of IIT – Official Website of Leo Club of IIT_files/DSC_0207-scaled-767x982.jpg',
+          './Leo Club of IIT – Official Website of Leo Club of IIT_files/DSC_0213-scaled-767x982.jpg',
+          './Leo Club of IIT – Official Website of Leo Club of IIT_files/DSC_0201-scaled-767x982.jpg',
+          './Leo Club of IIT – Official Website of Leo Club of IIT_files/WhatsApp-Image-2025-07-30-at-20.53.34_979861bf-767x853.jpg'
+        ];
+        const frameStyles=['frame-style1','frame-style2','frame-style3','frame-style4','frame-style5'];
+        fullGrid.innerHTML=allImgs.map(src=>{
+          const style=frameStyles[Math.floor(Math.random()*frameStyles.length)];
+          return `<div class="fullgallery-item"><div class="${style}"><img src="${src}" alt="memory"></div></div>`;
+        }).join('');
+        // add click handlers to enlarged view
+        fullGrid.querySelectorAll('img').forEach(img=>{
+          img.addEventListener('click',()=>{
+            const modal=document.getElementById('galleryModal');
+            const modalImg=document.getElementById('galleryModalImg');
+            modalImg.src=img.src; modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+          });
+        });
+      });
+    }
+    // close full gallery
+    document.getElementById('fullGalleryClose').addEventListener('click',()=>{
+      document.getElementById('fullGalleryOverlay').classList.remove('active');
+    });
+    document.getElementById('fullGalleryOverlay').addEventListener('click',(e)=>{
+      if(e.target.id==='fullGalleryOverlay') document.getElementById('fullGalleryOverlay').classList.remove('active');
+    });
+  </script>
 </body>
 </html>
