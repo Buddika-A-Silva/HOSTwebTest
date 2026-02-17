@@ -62,6 +62,12 @@
     .frame-style4{padding:14px;background:linear-gradient(-45deg,#f5f5f7 0%,#fff 100%);border-radius:4px;box-shadow:0 6px 12px rgba(0,0,0,.08);transform:rotate(2deg)}
     .frame-style5{padding:11px;background:linear-gradient(90deg,#fef9f3 0%,#fff 100%);border-radius:4px;box-shadow:0 10px 18px rgba(0,0,0,.1);transform:rotate(-1.2deg)}
     .fullgallery-item img{width:100%;height:auto;object-fit:contain;display:block;border-radius:6px}
+    /* Contact social buttons */
+    .contact-social{display:flex;gap:14px;align-items:center;margin-top:12px;flex-wrap:wrap}
+    .contact-social .social-frame{width:100px;height:100px;border-radius:16px;padding:10px;transition:transform .25s ease,box-shadow .25s ease}
+    .contact-social .social-frame img{width:100px;height:100px}
+    .contact-social .social-label{font-size:13px;color:var(--muted);margin-left:10px}
+    .contact-social .social-frame:hover{transform:translateY(-6px) scale(1.03);box-shadow:0 18px 40px rgba(0,0,0,0.65)}
 
     /* Social framed logo buttons */
     .social-frame{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:12px;padding:8px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));box-shadow:0 8px 20px rgba(0,0,0,0.45);transition:transform .25s ease,box-shadow .25s ease;border:1px solid rgba(255,255,255,0.03);overflow:hidden}
@@ -132,18 +138,18 @@
       <div class="sidebar-content">
         <a class="brand" href="#">
           <br><img class="logo-animated" src="dist/assets/logo.png" alt="Leo Club of Colombo HOST logo">
-          <span>Leo Club of Colombo HOST</span><br>
+          <span><b>Leo Club of Colombo HOST</b></span><br>
           <p>Since 1969</p>
 
         </a>
         <nav class="main-nav" align="center">
-          <a href="#hero">Home</a>
-          <a href="#about">Who We Are</a>
-          <a href="#team">Our Learders</a>
-          <a href="#projects">Upcoming Project</a>
-          <a href="#blog">Blog</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#contact">Get Connected</a>
+          <a href="#hero"><b>Home</b></a>
+          <a href="#about"><b>We Are</b></a>
+          <a href="#team"><b>Our Leaders</b></a>
+          <a href="#projects"><b>Upcoming Projects</b></a>
+          <a href="#blog"><b>Blog</b></a>
+          <a href="#gallery"><b>Gallery</b></a>
+          <a href="#contact"><b>Get Connected</b></a>
         </nav>
       </div>
       <div class="sidebar-footer">
@@ -352,9 +358,30 @@ When you become a Leo here, you don’t just volunteer—you contribute to decad
 
     <section id="contact" class="section">
       <div class="container">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:info@leoiit.org">info@leoiit.org</a></p>
-        <p>Follow us on campus social channels and check the full site for event-specific contact details.</p>
+        <h2>Contact</h2> <br>
+        <p>Email: <a href="mailto:info@leoHOST.org">info@leoHOST.org</a></p>
+        <p>Don’t miss out—join our community on social media to stay updated with every highlight and announcement. For more comprehensive information, including event‑specific contacts, feel free to browse through our complete website.</p><br>
+        <div class="contact-social" aria-label="social-links">
+          <a class="social-frame sf-fb" href="https://www.facebook.com/share/17tmrWZD2H/" target="_blank" rel="noopener noreferrer" title="Facebook">
+            <img src="dist/assets/images/logo/facebook.jpg" alt="facebook">
+          </a>
+          <br>
+          <a class="social-frame sf-tt" href="https://vm.tiktok.com/ZS9Jc2S7o2oud-fDPKy/" target="_blank" rel="noopener noreferrer" title="TikTok">
+            <img src="dist/assets/images/logo/tiktok.png" alt="tiktok">
+          </a>
+          <br>
+          <a class="social-frame sf-ig" href="https://www.instagram.com/leoclubcolombo?igsh=MXI3dTIyZnBxbGkwdg==" target="_blank" rel="noopener noreferrer" title="Instagram">
+            <img src="dist/assets/images/logo/instergram.png" alt="instagram">
+          </a>
+          <br>
+          <a class="social-frame sf-ln" href="https://www.linkedin.com/company/leo-club-of-colombo-host/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+            <img src="dist/assets/images/logo/linkedIn.png" alt="linkedin">
+          </a>
+          <br>
+          <a class="social-frame sf-wa" href="https://whatsapp.com/channel/0029VaezfAGC6ZviU54YqX23" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+            <img src="dist/assets/images/logo/whatsapp.jpg" alt="whatsapp">
+          </a>
+        </div>
       </div>
     </section>
 
