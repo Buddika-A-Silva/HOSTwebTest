@@ -104,6 +104,26 @@
 
     /* Fallback for any other h1/h2 */
     h1, h2{color:#f3e0b0}
+    
+    /* Sidebar logo: remove circular frame and make logo slightly larger */
+    .site-sidebar .brand img{
+      border-radius: 0 !important;
+      border: none !important;
+      box-shadow: none !important;
+      width: 170px !important;
+      height: auto !important;
+      max-height: 170px !important;
+      object-fit: contain;
+      margin-bottom: 1px !important;
+      display: block;
+    }
+    /* Stop logo bounce animation */
+    .brand img.logo-animated{animation: none !important;}
+
+    /* Reduce gap between logo and brand text */
+    .site-sidebar .brand{gap:4px !important}
+    .site-sidebar .brand span{margin-top:0 !important;display:block}
+    .site-sidebar .brand p{margin:0;font-size:0.92rem;color:rgba(255,255,255,0.7)}
   </style>
 </head>
 <body>
@@ -112,7 +132,7 @@
       <div class="sidebar-content">
         <a class="brand" href="#">
           <br><img class="logo-animated" src="dist/assets/logo.png" alt="Leo Club of Colombo HOST logo">
-          <br><span>Leo Club of Colombo HOST</span>
+          <span>Leo Club of Colombo HOST</span><br>
           <p>Since 1969</p>
 
         </a>
