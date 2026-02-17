@@ -62,20 +62,7 @@
     .frame-style4{padding:14px;background:linear-gradient(-45deg,#f5f5f7 0%,#fff 100%);border-radius:4px;box-shadow:0 6px 12px rgba(0,0,0,.08);transform:rotate(2deg)}
     .frame-style5{padding:11px;background:linear-gradient(90deg,#fef9f3 0%,#fff 100%);border-radius:4px;box-shadow:0 10px 18px rgba(0,0,0,.1);transform:rotate(-1.2deg)}
     .fullgallery-item img{width:100%;height:auto;object-fit:contain;display:block;border-radius:6px}
-    /* Social framed logo buttons */
-    .social-frame{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:12px;padding:8px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));box-shadow:0 8px 20px rgba(0,0,0,0.45);transition:transform .25s ease,box-shadow .25s ease;border:1px solid rgba(255,255,255,0.03);overflow:hidden}
-    .social-frame img{width:36px;height:36px;object-fit:contain;display:block}
-    .social-frame:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(0,0,0,0.6)}
-    .sf-fb{background:linear-gradient(135deg,#1877F2 0%,#0a5dd5 100%)}
-    .sf-tt{background:linear-gradient(135deg,#000000 0%,#222222 100%)}
-    .sf-ig{background:radial-gradient(circle at 30% 30%,#ffd4a6 0%,#ff7a4d 30%,#d92a6a 60%,#8a2be2 100%)}
-    .sf-ln{background:linear-gradient(135deg,#0A66C2 0%,#004b96 100%)}
-    .sf-wa{background:linear-gradient(135deg,#25D366 0%,#128c46 100%)}    /* Hero legacy badge background */
-    .hero-badge-bg{position:absolute;right:-80px;top:-60px;width:500px;height:500px;opacity:0.35;filter:drop-shadow(0 0 40px rgba(255,215,0,0.3));z-index:1;pointer-events:none}
-    @keyframes float-badge{0%{transform:translateY(0px) rotate(0deg);}50%{transform:translateY(-20px) rotate(2deg);}100%{transform:translateY(0px) rotate(0deg);}}
-    .hero .hero-badge-bg img{width:100%;height:100%;object-fit:contain}
-    .hero-logo{max-width:400px;width:100%;height:auto}
-    .hero-overlay{position:relative;z-index:2}  </style>
+  </style>
 </head>
 <body>
   <div class="page-wrapper">
@@ -83,11 +70,11 @@
       <div class="sidebar-content">
         <a class="brand" href="#">
           <br><img class="logo-animated" src="dist/assets/logo.png" alt="Leo Club of Colombo HOST logo">
-          <br><span><align=center>Leo Club of Colombo HOST</span>
-          <p><align=center>Since 1969</p>
+          <br><span>Leo Club of Colombo HOST</span>
+          <p>Since 1969</p>
 
         </a>
-        <nav class="main-nav" align="center">
+        <nav class="main-nav">
           <a href="#hero">Home</a>
           <a href="#about">Who We Are</a>
           <a href="#team">Our Learders</a>
@@ -105,9 +92,6 @@
     <main class="site-main">
     <section id="hero" class="hero">
       <div class="hero-video-effect">
-        <div class="hero-badge-bg">
-          <!--<img src="dist/assets/images/logo/legacy.png" alt="56 of Legacy badge" />-->
-        </div>
         <canvas id="heroCanvas"></canvas>
               <div class="bg-graphics" aria-hidden="true">
                 <div class="bg-shape shape-1"></div>
@@ -117,7 +101,7 @@
               </div>
               <div class="hero-overlay">
           <div class="hero-logo-wrap">
-            <img class="hero-logo" src="dist/assets/images/logo/legacy.png" alt="56 of Legacy badge">
+            <img class="hero-logo" src="dist/assets/logo.png" alt="Leo Club of Colombo HOST logo">
           </div>
           <div class="container hero-content">
             <h1>Leo Club of Colombo HOST</h1>
@@ -135,9 +119,7 @@
         <h2>About Us</h2>
         <div class="section-content-grid">
           <div class="content-text">
-            <p><b>The Leo Club of Colombo (Host)</b>, established in 1969, is a legacy as you become part of. As you step into this prestigious club, sponsored by the Lions Club of Colombo, you join a long-standing tradition of leadership, compassion, and impactful service in Sri Lanka.<br><br>
-When you become a Leo here, you donâ€™t just volunteerâ€”you contribute to decades of meaningful change. You take part in initiatives that uplift communities through childcare projects, elder support programs, educational empowerment, and countless other service efforts designed to make lives better. Every project gives you the chance to lead, to create, and to inspire those around you.
-What makes this club truly special is the environment you become a part of. Youâ€™ll work with dedicated, passionate young leaders who embody teamwork, innovation, and empathy. Along the way, youâ€™ll discover your own strengths, develop new skills, and grow into someone who can make a real difference.</p>
+            <p>The Leo Club of Colombo (Host), established in 1969, is a prestigious community-based Omega Leo Club sponsored by the Lions Club of Colombo. It focuses on community service and leadership development, engaging in various initiatives aimed at the betterment of the community, including childcare, eldercare, and educational projects. The club emphasizes teamwork, innovation, and compassion, fostering personal growth and meaningful contributions to society. For more information, you can visit their official LinkedIn page.</p>
           </div>
           <div class="image-box" style="display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;">
             <img src="dist/assets/images/R1.png" alt="Leo Club Badge" style="max-height:400px;width:auto;display:block;">
@@ -176,7 +158,6 @@ What makes this club truly special is the environment you become a part of. Youâ
             <p><b>President</b></p>
             <!--<p>Leading the club and coordinating initiatives.</p>-->
           </div>
-
           <div class="card">
             <div class="avatar">
               <img src="dist/assets/images/vise_president.jpeg" alt="Vice President" width="400" height="400" style="object-fit:cover;width:100%;height:100%;" />
@@ -184,7 +165,6 @@ What makes this club truly special is the environment you become a part of. Youâ
             <h3>Kavindu Rathnayake </h3>
             <p><b>Vice President</b></p>
           </div>
-
           <div class="card">
             <div class="avatar">
               <img src="dist/assets/images/sec.png" alt="Secretary" width="400" height="400" style="object-fit:cover;width:100%;height:100%;" />
@@ -192,7 +172,6 @@ What makes this club truly special is the environment you become a part of. Youâ
             <h3>Lahiru Balasuriya </h3>
             <p><b>Secretary</b></p>
           </div>
-
           <div class="card">
             <div class="avatar">
               <img src="dist/assets/images/ass_sec.png" alt="Assistance Secretary" width="400" height="400" style="object-fit:cover;width:100%;height:100%;" />
@@ -200,7 +179,6 @@ What makes this club truly special is the environment you become a part of. Youâ
             <h3>Buddika Ashan </h3>
             <p><b>Assistant Secretary</b></p>
           </div>
-
           <div class="card">
             <div class="avatar">
               <img src="dist/assets/images/Tres.png" alt="Treasurer" width="400" height="400" style="object-fit:cover;width:100%;height:100%;" />
@@ -208,7 +186,6 @@ What makes this club truly special is the environment you become a part of. Youâ
             <h3>Ayeshika Karunawardhana </h3>
             <p><b>Treasurer</b></p>
           </div>
-
           <div class="card">
             <div class="avatar">
               <img src="dist/assets/images/ass_Tres.jpeg" alt="Assistance Treasurer" width="400" height="400" style="object-fit:cover;width:100%;height:100%;" />
@@ -216,7 +193,6 @@ What makes this club truly special is the environment you become a part of. Youâ
             <h3>Hiruni Fernando </h3>
             <p><b>Assistant Treasurer</b></p>
           </div>
-
           <div class="card">
             <div class="avatar">
               <img src="dist/assets/images/Dir_of_Fin.jpeg" alt="Director of Finance" width="400" height="400" style="object-fit:cover;width:100%;height:100%;" />
@@ -224,13 +200,9 @@ What makes this club truly special is the environment you become a part of. Youâ
             <h3>Maleesha  </h3>
             <p><b>Director of Finance</b></p>
           </div>
-
-          <div class="card">
-            <div class="avatar">
-              <img src="dist/assets/images/Past-president.png" alt="Immediate Past President" width="400" height="400" style="object-fit:cover;width:100%;height:100%;" />
-            </div>
-            <h3>Sanduni Theekshana </h3>
-            <p><b>Immediate Past President</b></p></div>
+          <div class="card"><div class="avatar"></div>
+          <h3>Sanduni Theekshana </h3>
+          <p><b>Immediate Past President</b></p></div>
         </div>
       </div>
     </section>
@@ -286,7 +258,9 @@ What makes this club truly special is the environment you become a part of. Youâ
           <div class="gallery-item gallery-more"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2012.53.16.jpeg" alt="gallery-16"></div></div>
           <div class="gallery-item gallery-more"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2012.53.17.jpeg" alt="gallery-17"></div></div>
           <div class="gallery-item gallery-more"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2012.53.18.jpeg" alt="gallery-18"></div></div>
-          <div class="gallery-item gallery-more"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%20202455-10-29%20at%2012.53.18.jpeg" alt="gallery-19"></div></div>          <div class="gallery-item gallery-more"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%20 20258-10-29%20at%2009.41.10.jpeg" alt="gallery-20"></div></div>
+          <div class="gallery-item gallery-more"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%20202455-10-29%20at%2012.53.18.jpeg" alt="gallery-19"></div></div>
+          <div class="gallery-item gallery-more"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%20 20258-10-29%20at%2009.41.10.jpeg" alt="gallery-20"></div></div>
+          <div class="gallery-item gallery-more"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%202026-01-25%20at%2019.33.53.jpeg" alt="gallery-21"></div></div>
           <div class="gallery-item gallery-more"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%202026-01-26%20at%2000.11.28.jpeg" alt="gallery-22"></div></div>
           <div class="gallery-item gallery-more"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%202026-01-26%20at%2000.11.31.jpeg" alt="gallery-23"></div></div>
           <div class="gallery-item gallery-more"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%202026-01-26%20at%2000.11.33.jpeg" alt="gallery-24"></div></div>
@@ -305,84 +279,9 @@ What makes this club truly special is the environment you become a part of. Youâ
 
     <section id="contact" class="section">
       <div class="container">
-        <div style="max-width: 700px;">
-          <p style="color: var(--gold); font-size: 12px; letter-spacing: 3px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px;">Contact</p>
-          <h2 style="font-size: 40px; font-weight: 700; margin: 0 0 50px 0; line-height: 1.2;">Get in Touch</h2>
-          
-          
-          
-          
-          <!-- Email -->
-          <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 48px;">
-            <span style="font-size: 22px;">ðŸ“§</span>
-            <p style="margin: 0; color: var(--muted); font-size: 16px;"><span style="color: var(--gold); font-weight: 600;">Email:</span> <a href="mailto:BuddikaAshanSilva@Hotmail.com" style="color: var(--muted); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">BuddikaAshanSilva@Hotmail.com</a></p>
-          </div>
-          
-          <!-- Buttons -->
-          <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 50px; align-items: center;">
-            <p style="margin: 0; color: var(--muted); font-size: 14px; font-weight: 500;">Follow us:</p>
-            
-            <!-- Facebook -->
-            <a href="https://www.facebook.com/share/17tmrWZD2H/" target="_blank" rel="noopener noreferrer"
-               style="display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; 
-                      background: #1877F2; color: white; border-radius: 50%; 
-                      text-decoration: none; font-weight: bold; font-size: 22px; transition: all 0.3s ease;
-                      box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3);"
-               title="Follow us on Facebook"
-               onmouseover="this.style.transform='translateY(-4px) scale(1.1)'; this.style.boxShadow='0 8px 20px rgba(24, 119, 242, 0.5)';"
-               onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 4px 12px rgba(24, 119, 242, 0.3)';">
-              f
-            </a>
-            
-            <!-- TikTok -->
-            <a href="https://vm.tiktok.com/ZS9Jc2S7o2oud-fDPKy/" target="_blank" rel="noopener noreferrer"
-               style="display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; 
-                      background: #000000; color: white; border-radius: 50%; 
-                      text-decoration: none; font-weight: bold; font-size: 22px; transition: all 0.3s ease;
-                      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);"
-               title="Follow us on TikTok"
-               onmouseover="this.style.transform='translateY(-4px) scale(1.1)'; this.style.boxShadow='0 8px 20px rgba(255, 0, 127, 0.4)';"
-               onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.5)';">
-              â™ª
-            </a>
-            
-            <!-- Instagram -->
-            <a href="https://www.instagram.com/leoclubcolombo?igsh=MXI3dTIyZnBxbGkwdg==" target="_blank" rel="noopener noreferrer"
-               style="display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; 
-                      background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
-                      color: white; border-radius: 50%; text-decoration: none; font-weight: bold; font-size: 22px; 
-                      transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(224, 98, 118, 0.4);"
-               title="Follow us on Instagram"
-               onmouseover="this.style.transform='translateY(-4px) scale(1.1)'; this.style.boxShadow='0 8px 20px rgba(224, 98, 118, 0.6)';"
-               onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 4px 12px rgba(224, 98, 118, 0.4)';">
-              ðŸ“·
-            </a>
-            
-            <!-- LinkedIn -->
-            <a href="https://www.linkedin.com/company/leo-club-of-colombo-host/" target="_blank" rel="noopener noreferrer"
-               style="display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; 
-                      background: #0A66C2; color: white; border-radius: 50%; 
-                      text-decoration: none; font-weight: bold; font-size: 22px; transition: all 0.3s ease;
-                      box-shadow: 0 4px 12px rgba(10, 102, 194, 0.4);"
-               title="Follow us on LinkedIn"
-               onmouseover="this.style.transform='translateY(-4px) scale(1.1)'; this.style.boxShadow='0 8px 20px rgba(10, 102, 194, 0.6)';"
-               onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 4px 12px rgba(10, 102, 194, 0.4)';">
-              in
-            </a>
-            
-            <!-- WhatsApp -->
-            <a href="https://whatsapp.com/channel/0029VaezfAGC6ZviU54YqX23" target="_blank" rel="noopener noreferrer"
-               style="display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; 
-                      background: #25D366; color: white; border-radius: 50%; 
-                      text-decoration: none; font-weight: bold; font-size: 22px; transition: all 0.3s ease;
-                      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);"
-               title="Join us on WhatsApp"
-               onmouseover="this.style.transform='translateY(-4px) scale(1.1)'; this.style.boxShadow='0 8px 20px rgba(37, 211, 102, 0.6)';"
-               onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 4px 12px rgba(37, 211, 102, 0.4)';">
-              ðŸ’¬
-            </a>
-          </div>
-        </div>
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:info@leoiit.org">info@leoiit.org</a></p>
+        <p>Follow us on campus social channels and check the full site for event-specific contact details.</p>
       </div>
     </section>
 
@@ -465,6 +364,7 @@ What makes this club truly special is the environment you become a part of. Youâ
           'dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2012.53.18.jpeg',
           'dist/assets/images/Gallery/WhatsApp%20Image%20202455-10-29%20at%2012.53.18.jpeg',
           'dist/assets/images/Gallery/WhatsApp%20Image%2020258-10-29%20at%2009.41.10.jpeg',
+          'dist/assets/images/Gallery/WhatsApp%20Image%202026-01-25%20at%2019.33.53.jpeg',
           'dist/assets/images/Gallery/WhatsApp%20Image%202026-01-26%20at%2000.11.28.jpeg',
           'dist/assets/images/Gallery/WhatsApp%20Image%202026-01-26%20at%2000.11.31.jpeg',
           'dist/assets/images/Gallery/WhatsApp%20Image%202026-01-26%20at%2000.11.33.jpeg'
