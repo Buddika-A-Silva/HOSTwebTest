@@ -20,7 +20,7 @@
       overflow: hidden;
       border-radius: 32px;
       padding: 38px;
-      background: linear-gradient(135deg, rgba(79, 209, 255, 0.18), rgba(124, 92, 255, 0.2) 45%, rgba(2, 6, 18, 0.95));
+      background: linear-gradient(135deg, rgba(61, 90, 172, 0.18), rgba(201, 157, 79, 0.2) 45%, rgba(2, 6, 18, 0.95));
       border: 1px solid rgba(255,255,255,0.14);
       box-shadow: 0 26px 60px rgba(2, 6, 18, 0.35);
       min-height: 500px;
@@ -42,19 +42,20 @@
       height: 260px;
       right: -80px;
       top: -80px;
-      background: rgba(255, 209, 102, 0.22);
+      background: rgba(201, 157, 79, 0.22);
     }
     .home-hero-card::after {
       width: 220px;
       height: 220px;
       left: -70px;
       bottom: -70px;
-      background: rgba(79, 209, 255, 0.2);
+      background: rgba(61, 90, 172, 0.2);
     }
     .home-hero-card .eyebrow {
       position: relative;
       z-index: 1;
       margin-bottom: 12px;
+      color: #c99d4f;
     }
     .home-hero-card h1 {
       position: relative;
@@ -70,7 +71,7 @@
       z-index: 1;
       max-width: 640px;
       font-size: 1.02rem;
-      color: #dcebf8;
+      color: #f1e7d7;
       margin: 0 0 18px;
     }
     .home-pill-row {
@@ -84,9 +85,9 @@
     .home-pill {
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.09);
-      border: 1px solid rgba(255,255,255,0.14);
-      color: #f7fbff;
+      background: rgba(255,245,230,0.14);
+      border: 1px solid rgba(201,157,79,0.25);
+      color: #f7f0e7;
       font-size: 0.92rem;
     }
     .home-cta-row {
@@ -131,6 +132,8 @@
       color: #f8fbff;
       text-decoration: none;
       transition: transform 0.2s ease, border-color 0.2s ease;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(201,157,79,0.12);
     }
     .home-link-card::after {
       content: '→';
@@ -143,7 +146,7 @@
     }
     .home-link-card:hover {
       transform: translateY(-2px);
-      border-color: rgba(79,209,255,0.35);
+      border-color: rgba(61,90,172,0.35);
     }
     .home-link-card:hover::after {
       transform: translateX(2px);
@@ -153,10 +156,11 @@
       display: block;
       margin-bottom: 6px;
       font-size: 0.98rem;
+      color: #f7f0e7;
     }
     .home-link-card span {
       font-size: 0.9rem;
-      color: #c8d6e8;
+      color: #d9cab7;
     }
     @media (max-width: 980px) {
       .home-shell { grid-template-columns: 1fr; }

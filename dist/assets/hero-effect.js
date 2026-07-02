@@ -89,8 +89,8 @@
     blobs = [];
     const centerColors = [
       {start:'rgba(255,200,120,0.22)',mid:'rgba(255,160,60,0.08)'},
-      {start:'rgba(120,200,255,0.20)',mid:'rgba(60,120,200,0.06)'},
-      {start:'rgba(200,140,255,0.18)',mid:'rgba(140,60,200,0.05)'}
+      {start:'rgba(61,90,172,0.20)',mid:'rgba(30,60,120,0.06)'},
+      {start:'rgba(200,170,110,0.18)',mid:'rgba(140,110,60,0.05)'}
     ];
     for(let i=0;i<3;i++){
       const c = centerColors[i%centerColors.length];
