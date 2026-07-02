@@ -1,155 +1,173 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Leo Club of Colombo HOST</title>
-  <link rel="stylesheet" href="dist/styles.css">
-  <link rel="stylesheet" href="dist/assets/site-enhancements.css">
-  <link rel="stylesheet" href="dist/assets/divi.css">
-  <link rel="stylesheet" href="dist/assets/hero-effect.css">
-  <link rel="icon" href="dist/assets/logo.png" sizes="32x32">
-  <link rel="apple-touch-icon" href="dist/assets/logo.png">
-  <meta name="theme-color" content="#ffffff">
+  <title>Home | Leo Club of Colombo HOST</title>
+  <link rel="stylesheet" href="dist/assets/multipage.css" />
+  <link rel="icon" href="dist/assets/logo.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="dist/assets/logo.png" />
   <style>
-    /* Gallery grid and responsive layout */
-    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
-    .gallery-item{overflow:visible}
-    /* Decorative frame wrapper */
-    .gallery-item .frame{display:block;padding:5px;border-radius:14px;background:linear-gradient(135deg,#ffffff 0%,#fbfbfd 100%);box-shadow:0 12px 26px rgba(17,24,39,0.08);transform:rotate(-1deg);transition:transform .22s,box-shadow .22s}
-    .gallery-item .frame:hover{transform:rotate(0deg) scale(1.02);box-shadow:0 18px 30px rgba(17,24,39,0.12)}
-    .gallery-item img{width:100%;height:220px;object-fit:cover;display:block;border-radius:12px}
-    /* hidden extra items */
-    .gallery-more{display:none}
-    /* Modal */
-    .gallery-modal{position:fixed;inset:0;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;padding:24px;z-index:9999;visibility:hidden;opacity:0;transition:opacity .2s}
-    .gallery-modal.open{visibility:visible;opacity:1}
-    .gallery-modal img{max-width:92%;max-height:92%;border-radius:6px;box-shadow:0 18px 40px rgba(0,0,0,.6)}
-    .gallery-close{position:absolute;right:18px;top:18px;color:#fff;font-size:22px;cursor:pointer}
-    /* See memories button - styled as gold badge with arrow */
-    #galleryToggle{
-      margin-top:0;
-      background:linear-gradient(135deg,#FFD700 0%,#FFC700 100%);
-      color:#333;
-      border:none;
-      padding:14px 32px;
-      border-radius:50px;
-      font-weight:700;
-      font-size:15px;
-      cursor:pointer;
-      box-shadow:0 6px 16px rgba(255,215,0,0.35);
-      transition:all .3s ease;
-      position:relative;
-      letter-spacing:0.5px;
+    .home-hero { padding: 36px 0 48px; }
+    .home-shell {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+      align-items: stretch;
     }
-    #galleryToggle:hover{
-      transform:translateY(-3px);
-      box-shadow:0 12px 28px rgba(255,215,0,0.45);
-      background:linear-gradient(135deg,#FFED4E 0%,#FFD700 100%);
+    .home-hero-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 32px;
+      padding: 38px;
+      background: linear-gradient(135deg, rgba(79, 209, 255, 0.18), rgba(124, 92, 255, 0.2) 45%, rgba(2, 6, 18, 0.95));
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 26px 60px rgba(2, 6, 18, 0.35);
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
-    /* Full-screen gallery overlay */
-    #fullGalleryOverlay{position:fixed;inset:0;background:#111;z-index:8888;visibility:hidden;opacity:0;transition:opacity .3s;overflow-y:auto;padding:40px 20px;display:flex;align-items:flex-start;justify-content:center}
-    #fullGalleryOverlay.active{visibility:visible;opacity:1}
-    .fullgallery-container{max-width:1200px;margin:0 auto;width:100%;padding-top:20px}
-    .fullgallery-header{color:#fff;margin-bottom:30px;display:flex;justify-content:space-between;align-items:center}
-    .fullgallery-header h2{margin:0;font-size:2em}
-    .fullgallery-close-btn{background:none;border:none;color:#fff;font-size:28px;cursor:pointer}
-    .fullgallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(400px,1fr));gap:20px}
-    .fullgallery-item{overflow:visible}
-    .frame-style1{padding:12px;background:linear-gradient(135deg,#fff 0%,#f9f9fb 100%);border-radius:4px;box-shadow:0 8px 16px rgba(0,0,0,.15);transform:rotate(-2deg)}
-    .frame-style2{padding:8px;background:linear-gradient(45deg,#fff8f0 0%,#fff 100%);border-radius:4px;box-shadow:0 4px 8px rgba(0,0,0,.1);transform:rotate(1.5deg)}
-    .frame-style3{padding:10px;background:linear-gradient(180deg,#fffbf5 0%,#fff 100%);border-radius:4px;box-shadow:0 12px 24px rgba(0,0,0,.12);transform:rotate(-0.8deg)}
-    .frame-style4{padding:14px;background:linear-gradient(-45deg,#f5f5f7 0%,#fff 100%);border-radius:4px;box-shadow:0 6px 12px rgba(0,0,0,.08);transform:rotate(2deg)}
-    .frame-style5{padding:11px;background:linear-gradient(90deg,#fef9f3 0%,#fff 100%);border-radius:4px;box-shadow:0 10px 18px rgba(0,0,0,.1);transform:rotate(-1.2deg)}
-    .fullgallery-item img{width:100%;height:auto;object-fit:contain;display:block;border-radius:6px}
-    /* Contact social buttons */
-    .contact-social{display:flex;gap:14px;align-items:center;margin-top:12px;flex-wrap:wrap}
-    .contact-social .social-frame{width:100px;height:100px;border-radius:16px;padding:10px;transition:transform .25s ease,box-shadow .25s ease}
-    .contact-social .social-frame img{width:100px;height:100px}
-    .contact-social .social-label{font-size:13px;color:var(--muted);margin-left:10px}
-    .contact-social .social-frame:hover{transform:translateY(-6px) scale(1.03);box-shadow:0 18px 40px rgba(0,0,0,0.65)}
-
-    /* Social framed logo buttons */
-    .social-frame{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:12px;padding:8px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));box-shadow:0 8px 20px rgba(0,0,0,0.45);transition:transform .25s ease,box-shadow .25s ease;border:1px solid rgba(255,255,255,0.03);overflow:hidden}
-    .social-frame img{width:36px;height:36px;object-fit:contain;display:block}
-    .social-frame:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(0,0,0,0.6)}
-    .sf-fb{background:linear-gradient(135deg,#1877F2 0%,#0a5dd5 100%)}
-    .sf-tt{background:linear-gradient(135deg,#000000 0%,#222222 100%)}
-    .sf-ig{background:radial-gradient(circle at 30% 30%,#ffd4a6 0%,#ff7a4d 30%,#d92a6a 60%,#8a2be2 100%)}
-    .sf-ln{background:linear-gradient(135deg,#0A66C2 0%,#004b96 100%)}
-    .sf-wa{background:linear-gradient(135deg,#25D366 0%,#128c46 100%)}    /* Hero legacy badge background */
-    .hero-badge-bg{position:absolute;right:-80px;top:-60px;width:500px;height:500px;opacity:0.35;filter:drop-shadow(0 0 40px rgba(255,215,0,0.3));z-index:1;pointer-events:none}
-    @keyframes float-badge{0%{transform:translateY(0px) rotate(0deg);}50%{transform:translateY(-20px) rotate(2deg);}100%{transform:translateY(0px) rotate(0deg);}}
-    .hero .hero-badge-bg img{width:100%;height:100%;object-fit:contain}
-    .hero-logo{max-width:400px;width:100%;height:auto}
-    .hero-overlay{position:relative;z-index:2}
-
-    /* Craving / Engraved title styling (more visible) */
-    h1, h2{font-weight:800;letter-spacing:0.6px;margin:0;padding:0}
-
-    /* Hero heading: large, gradient-filled, stroked and embossed */
-    .hero .hero-content h1{
-      font-size:clamp(32px,6vw,64px);
-      line-height:1.05;
-      background: linear-gradient(180deg,#fff9e6 0%,#f2c94c 60%,#b77b05 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      color: #f6d36c; /* fallback */
-      text-shadow: 0 8px 18px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.25);
-      -webkit-text-stroke: 0.9px rgba(0,0,0,0.6);
-      transform: translateZ(0);
+    .home-hero-card::before,
+    .home-hero-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(28px);
+      pointer-events: none;
+      opacity: 0.8;
     }
-
-    /* Section headings: smaller scale but same carved feel */
-    .section h2{
-      font-size:clamp(18px,3.6vw,36px);
-      color:#f3e2b0;
-      text-shadow: 0 4px 10px rgba(0,0,0,0.55), 0 1px 0 rgba(255,255,255,0.18) inset;
-      -webkit-text-stroke: 0.6px rgba(0,0,0,0.5);
+    .home-hero-card::before {
+      width: 260px;
+      height: 260px;
+      right: -80px;
+      top: -80px;
+      background: rgba(255, 209, 102, 0.22);
     }
-
-    /* Fallback for any other h1/h2 */
-    h1, h2{color:#f3e0b0}
-    
-    /* Sidebar logo: remove circular frame and make logo slightly larger */
-    .site-sidebar .brand img{
-      border-radius: 0 !important;
-      border: none !important;
-      box-shadow: none !important;
-      width: 170px !important;
-      height: auto !important;
-      max-height: 170px !important;
-      object-fit: contain;
-      margin-bottom: 1px !important;
+    .home-hero-card::after {
+      width: 220px;
+      height: 220px;
+      left: -70px;
+      bottom: -70px;
+      background: rgba(79, 209, 255, 0.2);
+    }
+    .home-hero-card .eyebrow {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 12px;
+    }
+    .home-hero-card h1 {
+      position: relative;
+      z-index: 1;
+      font-size: clamp(2.2rem, 4vw, 3.6rem);
+      line-height: 1.05;
+      margin: 0 0 16px;
+      color: #ffffff;
+      max-width: 700px;
+    }
+    .home-hero-card p {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+      font-size: 1.02rem;
+      color: #dcebf8;
+      margin: 0 0 18px;
+    }
+    .home-pill-row {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0 20px;
+    }
+    .home-pill {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.14);
+      color: #f7fbff;
+      font-size: 0.92rem;
+    }
+    .home-cta-row {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 6px;
+    }
+    .home-side-stack {
+      display: grid;
+      gap: 16px;
+    }
+    .home-media-card,
+    .home-link-card {
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      box-shadow: 0 16px 34px rgba(0,0,0,0.2);
+      backdrop-filter: blur(12px);
+    }
+    .home-media-card {
+      overflow: hidden;
+      min-height: 270px;
+    }
+    .home-media-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       display: block;
     }
-    /* Stop logo bounce animation */
-    .brand img.logo-animated{animation: none !important;}
-
-    /* Reduce gap between logo and brand text */
-    .site-sidebar .brand{gap:4px !important}
-    .site-sidebar .brand span{margin-top:0 !important;display:block}
-    .site-sidebar .brand p{margin:0;font-size:0.92rem;color:rgba(255,255,255,0.7)}
+    .home-link-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .home-link-card {
+      display: block;
+      padding: 18px 16px;
+      color: #f8fbff;
+      text-decoration: none;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .home-link-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(79,209,255,0.35);
+    }
+    .home-link-card strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.98rem;
+    }
+    .home-link-card span {
+      font-size: 0.9rem;
+      color: #c8d6e8;
+    }
+    @media (max-width: 980px) {
+      .home-shell { grid-template-columns: 1fr; }
+      .home-hero-card { min-height: auto; }
+    }
   </style>
 </head>
 <body>
   <div class="page-wrapper">
     <aside class="site-sidebar">
       <div class="sidebar-content">
-        <a class="brand" href="#">
-          <br><img class="logo-animated" src="dist/assets/logo.png" alt="Leo Club of Colombo HOST logo">
-          <span><b>LEO Club of Colombo HOST</b></span><br>
+        <a class="brand" href="index.html">
+          <img src="dist/assets/logo.png" alt="Leo Club of Colombo HOST logo" />
+          <span>LEO Club of Colombo HOST</span>
           <p>Since 1969</p>
-
         </a>
-        <nav class="main-nav" align="center">
-          <a href="#hero">Home</a>
-          <a href="#about">Who We Are</a>
-          <a href="#team">Our Leaders</a>
-          <a href="#projects">Upcoming Projects</a>
-          <a href="#blog">Blog</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#contact">Get Connected</a>
+        <nav class="main-nav">
+          <a href="index.html" class="active">Home</a>
+          <a href="about.html">Who We Are</a>
+          <a href="impact.html">Our Impact</a>
+          <a href="mission.html">Mission</a>
+          <a href="how-we-serve.html">How We Serve</a>
+          <a href="leaders.html">Our Leaders</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="contact.html">Get Connected</a>
         </nav>
       </div>
       <div class="sidebar-footer">
@@ -158,338 +176,51 @@
     </aside>
 
     <main class="site-main">
-    <section id="hero" class="hero">
-      <div class="hero-video-effect">
-        <canvas id="heroCanvas"></canvas>
-              <div class="bg-graphics" aria-hidden="true">
-                <div class="bg-shape shape-1"></div>
-                <div class="bg-shape shape-2"></div>
-                <div class="bg-shape shape-3"></div>
-                <div class="bg-shape shape-4"></div>
+      <section class="home-hero">
+        <div class="container">
+          <div class="home-shell">
+            <div class="home-hero-card">
+              <p class="eyebrow">Leo Club of Colombo HOST</p>
+              <h1>Building brighter communities through service.</h1>
+              <p>We are a youth-led service movement rooted in a proud legacy since 1969, turning compassion into action and leadership into lasting impact.</p>
+              <div class="home-pill-row">
+                <span class="home-pill">Legacy since 1969</span>
+                <span class="home-pill">Youth-led impact</span>
+                <span class="home-pill">Community-first service</span>
               </div>
-              <div class="hero-overlay">
-          <div class="hero-logo-wrap">
-            <img class="hero-logo" src="dist/assets/images/logo/legacy1.png" alt="Leo Club of Colombo HOST logo">
-          </div>
-          <div class="container hero-content">
-            <Br><h1>LEO Club of Colombo HOST</h1>
-            <p class="lead">Service. Leadership. Fellowship. Building brighter communities together.</p>
-            <p><a class="btn" href="#contact">Join Us / Contact</a></p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- gallery temporarily moved; replaced later below blog -->
-
-    <section id="about" class="section">
-      <div class="container">
-        <h2>About Us</h2>
-        <div class="section-content-grid">
-          <div class="content-text">
-            <p><b>The Leo Club of Colombo (Host)</b>, established in 1969, is a legacy as you become part of. As you step into this prestigious club, sponsored by the Lions Club of Colombo, you join a long-standing tradition of leadership, compassion, and impactful service in Sri Lanka.<br><br>
-
-When you become a Leo here, you don’t just volunteer—you contribute to decades of meaningful change. You take part in initiatives that uplift communities through childcare projects, elder support programs, educational empowerment, and countless other service efforts designed to make lives better. Every project gives you the chance to lead, to create, and to inspire those around you. What makes this club truly special is the environment you become a part of. You’ll work with dedicated, passionate young leaders who embody teamwork, innovation, and empathy. Along the way, you’ll discover your own strengths, develop new skills, and grow into someone who can make a real difference.</p>
-          </div>
-          <div class="image-box" style="display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;">
-            <img src="dist/assets/images/R1.png" alt="Leo Club Badge" style="max-height:400px;width:auto;display:block;">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="section alt">
-      <div class="container">
-        <h2>Upcoming Project</h2><br>
-        <div class="section-content-grid">
-          <div class="image-box">
-            <img src="dist/assets/images/Upcoming-Project.jpeg" alt="Feed with Love Project">
-          </div>
-          <div class="content-text">
-            <h3>🐾 FEED WITH LOVE 🐾</h3>
-            <p>Let's come together to spread kindness and ease the hunger of homeless animals who survive each day without food or care. A small act of compassion can make a big difference in a helpless life.</p>
-            <p><strong>📅 From 4th February to 11th February</strong></p>
-            <p>Join Leo Club of Colombo (Host) in this meaningful initiative and be the reason a soul eats with love today.</p>
-            <p style="font-weight: 600; color: #e74c3c;">Together, let's serve with heart. ❤️</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="team" class="section">
-      <div class="container">
-        <h2>Board of Directors</h2>
-        <div class="team-grid team-grid-8">
-          <div class="card">
-            <div class="avatar">
-              <img src="dist/assets/images/president.jpg" alt="President" width="400" height="400" style="object-fit:cover;width:100%;height:100%;" />
+              <div class="home-cta-row">
+                <a class="btn" href="contact.html">Join Us / Contact</a>
+                <a class="btn btn-secondary" href="about.html">Explore Our Story</a>
+              </div>
             </div>
-            <h3>Pasindu Gimhan </h3>
-            <p><b>President</b></p>
-            <!--<p>Leading the club and coordinating initiatives.</p>-->
-          </div>
 
-          <div class="card">
-            <div class="avatar">
-              <img src="dist/assets/images/vise_president.jpeg" alt="Vice President" width="400" height="400" style="object-fit:cover;width:100%;height:100%;" />
-            </div>
-            <h3>Kavindu Rathnayake </h3>
-            <p><b>Vice President</b></p>
-          </div>
-
-          <div class="card">
-            <div class="avatar">
-              <img src="dist/assets/images/sec.png" alt="Secretary" width="400" height="400" style="object-fit:cover;width:100%;height:100%;" />
-            </div>
-            <h3>Lahiru Balasuriya </h3>
-            <p><b>Secretary</b></p>
-          </div>
-
-          <div class="card">
-            <div class="avatar">
-              <img src="dist/assets/images/ass_sec.png" alt="Assistance Secretary" width="400" height="400" style="object-fit:cover;width:100%;height:100%;" />
-            </div>
-            <h3>Buddika Ashan </h3>
-            <p><b>Assistant Secretary</b></p>
-          </div>
-
-          <div class="card">
-            <div class="avatar">
-              <img src="dist/assets/images/Tres.png" alt="Treasurer" width="400" height="400" style="object-fit:cover;width:100%;height:100%;" />
-            </div>
-            <h3>Ayeshika Karunawardhana </h3>
-            <p><b>Treasurer</b></p>
-          </div>
-
-          <div class="card">
-            <div class="avatar">
-              <img src="dist/assets/images/ass_Tres.jpeg" alt="Assistance Treasurer" width="400" height="400" style="object-fit:cover;width:100%;height:100%;" />
-            </div>
-            <h3>Hiruni Fernando </h3>
-            <p><b>Assistant Treasurer</b></p>
-          </div>
-
-          <div class="card">
-            <div class="avatar">
-              <img src="dist/assets/images/Dir_of_Fin.jpeg" alt="Director of Finance" width="400" height="400" style="object-fit:cover;width:100%;height:100%;" />
-            </div>
-            <h3>Maleesha  </h3>
-            <p><b>Director of Finance</b></p>
-          </div>
-
-          <div class="card">
-            <div class="avatar">
-              <img src="dist/assets/images/Past-president.png" alt="Past President" width="400" height="400" style="object-fit:cover;width:100%;height:100%;" />
-            </div>
-            <h3>Sanduni Theekshana </h3>
-            <p><b>Immediate Past President</b></p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="blog" class="section alt">
-      <div class="container">
-        <h2>Blog & News</h2>
-        <div class="blog-carousel">
-          <div class="blog-slides">
-            <article class="blog-slide">
-              <h3>Community Childcare Initiative</h3>
-              <p>We run ongoing childcare support sessions in partnership with local centers.</p>
-            </article>
-            <article class="blog-slide">
-              <h3>Eldercare Outreach</h3>
-              <p>Volunteers visit eldercare homes and provide companionship and support.</p>
-            </article>
-            <article class="blog-slide">
-              <h3>Educational Workshops</h3>
-              <p>Free tutoring and skills workshops for underprivileged students.</p>
-            </article>
-          </div>
-          <div class="carousel-controls">
-            <button class="carousel-prev">Prev</button>
-            <button class="carousel-next">Next</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Photo gallery placed below the blog -->
-    <section id="gallery" class="section">
-      <div class="container">
-        <h2>Photo Gallery</h2>
-        <p>Memories from our club events — click any photo to enlarge.</p>
-        <div class="gallery-grid" id="galleryGrid">
-          <div class="gallery-item"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2009.41.022.jpeg" alt="gallery-1"></div></div>
-          <div class="gallery-item"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2009.41.10.jpeg" alt="gallery-2"></div></div>
-          <div class="gallery-item"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2009.41.11.jpeg" alt="gallery-3"></div></div>
-          <div class="gallery-item"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2009.41.14.jpeg" alt="gallery-4"></div></div>
-          <div class="gallery-item"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2009.41.19.jpeg" alt="gallery-5"></div></div>
-          <div class="gallery-item"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2009.41.20.jpeg" alt="gallery-6"></div></div>
-          <div class="gallery-item"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2009.41.22.jpeg" alt="gallery-7"></div></div>
-          <div class="gallery-item"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2009.41.23.jpeg" alt="gallery-8"></div></div>
-          <!-- extra images hidden by default -->
-          <div class="gallery-item gallery-more"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2009.41.25.jpeg" alt="gallery-9"></div></div>
-          <div class="gallery-item gallery-more"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2012.51.28.jpeg" alt="gallery-10"></div></div>
-          <div class="gallery-item gallery-more"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2012.51.34.jpeg" alt="gallery-11"></div></div>
-          <div class="gallery-item gallery-more"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2012.51.51.jpeg" alt="gallery-12"></div></div>
-          <div class="gallery-item gallery-more"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2012.52.02.jpeg" alt="gallery-13"></div></div>
-          <div class="gallery-item gallery-more"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2012.52.35.jpeg" alt="gallery-14"></div></div>
-          <div class="gallery-item gallery-more"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2012.52.51.jpeg" alt="gallery-15"></div></div>
-          <div class="gallery-item gallery-more"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2012.53.16.jpeg" alt="gallery-16"></div></div>
-          <div class="gallery-item gallery-more"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2012.53.17.jpeg" alt="gallery-17"></div></div>
-          <div class="gallery-item gallery-more"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2012.53.18.jpeg" alt="gallery-18"></div></div>
-          <div class="gallery-item gallery-more"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%20202455-10-29%20at%2012.53.18.jpeg" alt="gallery-19"></div></div>
-          <div class="gallery-item gallery-more"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%20 20258-10-29%20at%2009.41.10.jpeg" alt="gallery-20"></div></div>
-          <div class="gallery-item gallery-more"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%202026-01-26%20at%2000.11.28.jpeg" alt="gallery-22"></div></div>
-          <div class="gallery-item gallery-more"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%202026-01-26%20at%2000.11.31.jpeg" alt="gallery-23"></div></div>
-          <div class="gallery-item gallery-more"><div class="frame"><img src="dist/assets/images/Gallery/WhatsApp%20Image%202026-01-26%20at%2000.11.33.jpeg" alt="gallery-24"></div></div>
-          <div class="gallery-item gallery-more"><div class="frame"><img src="./Leo Club of IIT – Official Website of Leo Club of IIT_files/DSC_0201-scaled-767x982.jpg" alt="gallery-11"></div></div>
-          <div class="gallery-item gallery-more"><div class="frame"><img src="./Leo Club of IIT – Official Website of Leo Club of IIT_files/WhatsApp-Image-2025-07-30-at-20.53.34_979861bf-767x853.jpg" alt="gallery-12"></div></div>
-        <!--</div>
-        <div style="text-align:center;position:relative;margin-top:20px;">-->
-          <!--<svg style="position:absolute;bottom:50px;left:50%;transform:translateX(-50%);width:80px;height:60px;" viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M40 55 Q25 40 20 20" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round"/>
-            <path d="M20 20 L16 28 M20 20 L28 18" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>-->
-          <p><button id="galleryToggle" class="btn">See memories</button></p>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="container">
-        <h2>Contact</h2> <br>
-        <p>Email: <a href="mailto:info@leoHOST.org">info@leoHOST.org</a></p>
-        <p>Don’t miss out—join our community on social media to stay updated with every highlight and announcement. For more comprehensive information, including event‑specific contacts, feel free to browse through our complete website.</p><br>
-        <div class="contact-social" aria-label="social-links">
-          <a class="social-frame sf-fb" href="https://www.facebook.com/share/17tmrWZD2H/" target="_blank" rel="noopener noreferrer" title="Facebook">
-            <img src="dist/assets/images/logo/facebook.jpg" alt="facebook">
-          </a>
-          <br>
-          <a class="social-frame sf-tt" href="https://vm.tiktok.com/ZS9Jc2S7o2oud-fDPKy/" target="_blank" rel="noopener noreferrer" title="TikTok">
-            <img src="dist/assets/images/logo/tiktok.png" alt="tiktok">
-          </a>
-          <br>
-          <a class="social-frame sf-ig" href="https://www.instagram.com/leoclubcolombo?igsh=MXI3dTIyZnBxbGkwdg==" target="_blank" rel="noopener noreferrer" title="Instagram">
-            <img src="dist/assets/images/logo/instergram.png" alt="instagram">
-          </a>
-          <br>
-          <a class="social-frame sf-ln" href="https://www.linkedin.com/company/leo-club-of-colombo-host/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
-            <img src="dist/assets/images/logo/linkedIn.png" alt="linkedin">
-          </a>
-          <br>
-          <a class="social-frame sf-wa" href="https://whatsapp.com/channel/0029VaezfAGC6ZviU54YqX23" target="_blank" rel="noopener noreferrer" title="WhatsApp">
-            <img src="dist/assets/images/logo/whatsapp.jpg" alt="whatsapp">
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section id="trustpilot" class="section alt">
-      <div class="container">
-        <h2>What people say</h2>
-        <!-- Trustpilot widget (embedded from exported Divi files) -->
-        <div id="tp-widget-wrapper" class="tp-widget-wrapper visible">
-          <div id="wrapper-company-info" class="wrapper-company-info">
-            <div class="tp-widget-humanscore"><h1 id="trust-score">Excellent</h1></div>
-            <div id="tp-widget-stars" class="tp-widget-stars">
-              <div class=""><div class="tp-stars tp-stars--5">
-                <div style="position: relative; height: 0; width: 100%; padding: 0; padding-bottom: 18.326693227091635%;">
-                  <!-- SVG omitted in root copy for brevity; original SVG remains in dist/index.html -->
-                </div>
-              </div></div>
+            <div class="home-side-stack">
+              <div class="home-media-card">
+                <img src="dist/assets/images/R1.png" alt="Leo Club heritage and service image" />
+              </div>
+              <div class="home-link-grid">
+                <a class="home-link-card" href="about.html">
+                  <strong>Who We Are</strong>
+                  <span>Discover our story and values.</span>
+                </a>
+                <a class="home-link-card" href="impact.html">
+                  <strong>Our Impact</strong>
+                  <span>See the change we create.</span>
+                </a>
+                <a class="home-link-card" href="mission.html">
+                  <strong>Mission</strong>
+                  <span>Learn what drives us forward.</span>
+                </a>
+                <a class="home-link-card" href="contact.html">
+                  <strong>Get Connected</strong>
+                  <span>Be part of the next chapter.</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
+    </main>
   </div>
-  <script src="dist/assets/site-enhancements.js"></script>
-  <script src="dist/assets/hero-effect.js"></script>
-  <script src="dist/assets/site-bg-inject.js"></script>
-  <div id="galleryModal" class="gallery-modal" role="dialog" aria-hidden="true">
-    <div class="gallery-close" id="galleryClose">✕</div>
-    <img id="galleryModalImg" src="" alt="enlarged" />
-  </div>
-
-  <!-- Full-screen gallery overlay -->
-  <div id="fullGalleryOverlay">
-    <div class="fullgallery-container">
-      <div class="fullgallery-header">
-        <h2>Photo Memories</h2>
-        <button class="fullgallery-close-btn" id="fullGalleryClose">✕</button>
-      </div>
-      <div class="fullgallery-grid" id="fullGalleryGrid"></div>
-    </div>
-  </div>
-  <script>
-    // open modal on thumbnail click
-    document.querySelectorAll('.gallery-item img').forEach(img=>{
-      img.addEventListener('click',()=>{
-        const modal=document.getElementById('galleryModal');
-        const modalImg=document.getElementById('galleryModalImg');
-        modalImg.src=img.src; modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
-      })
-    });
-    // close handlers
-    document.getElementById('galleryClose').addEventListener('click',()=>{const m=document.getElementById('galleryModal');m.classList.remove('open');m.setAttribute('aria-hidden','true');});
-    document.getElementById('galleryModal').addEventListener('click',(e)=>{if(e.target.id==='galleryModal') {e.currentTarget.classList.remove('open');e.currentTarget.setAttribute('aria-hidden','true');}});
-
-    // toggle to full-screen gallery
-    const toggleBtn=document.getElementById('galleryToggle');
-    if(toggleBtn){
-      toggleBtn.addEventListener('click',()=>{
-        const overlay=document.getElementById('fullGalleryOverlay');
-        overlay.classList.add('active');
-        const fullGrid=document.getElementById('fullGalleryGrid');
-        const allImgs=[
-          'dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2009.41.022.jpeg',
-          'dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2009.41.10.jpeg',
-          'dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2009.41.11.jpeg',
-          'dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2009.41.14.jpeg',
-          'dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2009.41.19.jpeg',
-          'dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2009.41.20.jpeg',
-          'dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2009.41.22.jpeg',
-          'dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2009.41.23.jpeg',
-          'dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2009.41.25.jpeg',
-          'dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2012.51.28.jpeg',
-          'dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2012.51.34.jpeg',
-          'dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2012.51.51.jpeg',
-          'dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2012.52.02.jpeg',
-          'dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2012.52.35.jpeg',
-          'dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2012.52.51.jpeg',
-          'dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2012.53.16.jpeg',
-          'dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2012.53.17.jpeg',
-          'dist/assets/images/Gallery/WhatsApp%20Image%202025-10-29%20at%2012.53.18.jpeg',
-          'dist/assets/images/Gallery/WhatsApp%20Image%20202455-10-29%20at%2012.53.18.jpeg',
-          'dist/assets/images/Gallery/WhatsApp%20Image%2020258-10-29%20at%2009.41.10.jpeg',
-          'dist/assets/images/Gallery/WhatsApp%20Image%202026-01-26%20at%2000.11.28.jpeg',
-          'dist/assets/images/Gallery/WhatsApp%20Image%202026-01-26%20at%2000.11.31.jpeg',
-          'dist/assets/images/Gallery/WhatsApp%20Image%202026-01-26%20at%2000.11.33.jpeg'
-        ];
-        const frameStyles=['frame-style1','frame-style2','frame-style3','frame-style4','frame-style5'];
-        fullGrid.innerHTML=allImgs.map(src=>{
-          const style=frameStyles[Math.floor(Math.random()*frameStyles.length)];
-          return `<div class="fullgallery-item"><div class="${style}"><img src="${src}" alt="memory"></div></div>`;
-        }).join('');
-        // add click handlers to enlarged view
-        fullGrid.querySelectorAll('img').forEach(img=>{
-          img.addEventListener('click',()=>{
-            const modal=document.getElementById('galleryModal');
-            const modalImg=document.getElementById('galleryModalImg');
-            modalImg.src=img.src; modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
-          });
-        });
-      });
-    }
-    // close full gallery
-    document.getElementById('fullGalleryClose').addEventListener('click',()=>{
-      document.getElementById('fullGalleryOverlay').classList.remove('active');
-    });
-    document.getElementById('fullGalleryOverlay').addEventListener('click',(e)=>{
-      if(e.target.id==='fullGalleryOverlay') document.getElementById('fullGalleryOverlay').classList.remove('active');
-    });
-  </script>
 </body>
 </html>

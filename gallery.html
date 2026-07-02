@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gallery | Leo Club of Colombo HOST</title>
+  <link rel="stylesheet" href="dist/assets/multipage.css" />
+</head>
+<body>
+  <div class="page-wrapper">
+    <aside class="site-sidebar">
+      <div class="sidebar-content">
+        <a class="brand" href="index.html">
+          <img src="dist/assets/logo.png" alt="Leo Club of Colombo HOST logo" />
+          <span>LEO Club of Colombo HOST</span>
+          <p>Since 1969</p>
+        </a>
+        <nav class="main-nav">
+          <a href="index.html">Home</a>
+          <a href="about.html">Who We Are</a>
+          <a href="impact.html">Our Impact</a>
+          <a href="mission.html">Mission</a>
+          <a href="how-we-serve.html">How We Serve</a>
+          <a href="leaders.html">Our Leaders</a>
+          <a href="gallery.html" class="active">Gallery</a>
+          <a href="contact.html">Get Connected</a>
+        </nav>
+      </div>
+      <div class="sidebar-footer">
+        <small>© LEO Club of Colombo HOST<br>By Arctic Technologies</small>
+      </div>
+    </aside>
+
+    <main class="site-main">
+      <section class="page-hero">
+        <div class="container">
+          <p class="eyebrow">Gallery</p>
+          <h1>Moments from the journey</h1>
+          <p>From service drives to leadership moments, these images capture the spirit and energy that define our club.</p>
+        </div>
+      </section>
+
+      <section class="content-panel">
+        <div class="container">
+          <div class="gallery-grid" id="galleryGrid"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="gallery-modal" id="galleryModal" aria-hidden="true">
+    <div class="gallery-close" id="galleryClose">✕</div>
+    <img id="galleryModalImg" src="" alt="Gallery preview" />
+  </div>
+
+  <script>
+    const images = [
+      { src: 'dist/assets/images/Gallery/WhatsApp Image 2025-10-29 at 09.41.022.jpeg', title: 'Community moment' },
+      { src: 'dist/assets/images/Gallery/WhatsApp Image 2025-10-29 at 09.41.10.jpeg', title: 'Service activity' },
+      { src: 'dist/assets/images/Gallery/WhatsApp Image 2025-10-29 at 09.41.11.jpeg', title: 'Leadership gathering' },
+      { src: 'dist/assets/images/Gallery/WhatsApp Image 2025-10-29 at 09.41.14.jpeg', title: 'Club event' },
+      { src: 'dist/assets/images/Gallery/WhatsApp Image 2025-10-29 at 09.41.19.jpeg', title: 'Volunteer spirit' },
+      { src: 'dist/assets/images/Gallery/WhatsApp Image 2025-10-29 at 09.41.20.jpeg', title: 'Campus connection' },
+      { src: 'dist/assets/images/Gallery/WhatsApp Image 2025-10-29 at 09.41.22.jpeg', title: 'Impact in action' },
+      { src: 'dist/assets/images/Gallery/WhatsApp Image 2025-10-29 at 09.41.23.jpeg', title: 'Team collaboration' },
+      { src: 'dist/assets/images/Gallery/WhatsApp Image 2025-10-29 at 09.41.25.jpeg', title: 'Community outreach' },
+      { src: 'dist/assets/images/Gallery/WhatsApp Image 2025-10-29 at 12.51.28.jpeg', title: 'Shared purpose' },
+      { src: 'dist/assets/images/Gallery/WhatsApp Image 2025-10-29 at 12.51.34.jpeg', title: 'Leadership moment' },
+      { src: 'dist/assets/images/Gallery/WhatsApp Image 2025-10-29 at 12.51.51.jpeg', title: 'Friendship and service' },
+      { src: 'dist/assets/images/Gallery/WhatsApp Image 2025-10-29 at 12.52.02.jpeg', title: 'Future-ready energy' },
+      { src: 'dist/assets/images/Gallery/WhatsApp Image 2025-10-29 at 12.52.35.jpeg', title: 'Community care' },
+      { src: 'dist/assets/images/Gallery/WhatsApp Image 2025-10-29 at 12.52.51.jpeg', title: 'Meaningful moments' },
+      { src: 'dist/assets/images/Gallery/WhatsApp Image 2025-10-29 at 12.53.16.jpeg', title: 'Together for good' },
+      { src: 'dist/assets/images/Gallery/WhatsApp Image 2025-10-29 at 12.53.17.jpeg', title: 'Celebrating service' },
+      { src: 'dist/assets/images/Gallery/WhatsApp Image 2025-10-29 at 12.53.18.jpeg', title: 'Legacy in motion' },
+      { src: 'dist/assets/images/Gallery/WhatsApp Image 2026-01-26 at 00.11.28.jpeg', title: 'Memorable chapter' },
+      { src: 'dist/assets/images/Gallery/WhatsApp Image 2026-01-26 at 00.11.31.jpeg', title: 'Growing impact' },
+      { src: 'dist/assets/images/Gallery/WhatsApp Image 2026-01-26 at 00.11.33.jpeg', title: 'Community connection' }
+    ];
+
+    const grid = document.getElementById('galleryGrid');
+    const modal = document.getElementById('galleryModal');
+    const modalImg = document.getElementById('galleryModalImg');
+    const close = document.getElementById('galleryClose');
+
+    images.forEach((image) => {
+      const card = document.createElement('a');
+      card.className = 'gallery-card';
+      card.href = '#';
+      card.innerHTML = `<img src="${image.src}" alt="${image.title}" /><span>${image.title}</span>`;
+      card.addEventListener('click', (event) => {
+        event.preventDefault();
+        modalImg.src = image.src;
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+      });
+      grid.appendChild(card);
+    });
+
+    const closeModal = () => {
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+    };
+
+    close.addEventListener('click', closeModal);
+    modal.addEventListener('click', closeModal);
+  </script>
+</body>
+</html>
