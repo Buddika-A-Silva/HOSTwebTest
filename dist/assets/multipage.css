@@ -366,6 +366,22 @@ a { color: inherit; text-decoration: none; }
   margin: 12px 0 0;
   max-width: 520px;
 }
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.contact-form .form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+.contact-form .form-actions .btn,
+.contact-form .form-actions .btn-secondary {
+  flex: 1 1 180px;
+}
 
 /* Small finishing alignment tweaks for non-home pages */
 .site-main .container {
@@ -429,4 +445,58 @@ a { color: inherit; text-decoration: none; }
   .hero-media { order: -1; }
   .section-content-grid, .mission-grid, .feature-grid, .team-grid, .culture-grid, .card-grid, .page-highlight-grid { grid-template-columns: 1fr; }
   .impact-list { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .container { padding: 0 16px; }
+  .content-left .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .page-hero { padding: 52px 0 36px; }
+  .page-hero h1 { font-size: clamp(1.7rem, 7.2vw, 2.2rem); }
+  .content-panel { padding: 18px 0 56px; }
+  .section-content-grid,
+  .content-left .section-content-grid {
+    gap: 24px;
+    grid-template-columns: 1fr;
+  }
+  .image-box {
+    max-width: none;
+    margin-left: 0;
+  }
+  .content-text {
+    max-width: none;
+  }
+  .contact-social {
+    gap: 10px;
+  }
+  .contact-social .social-frame {
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+    padding: 8px;
+  }
+  .contact-social .social-frame img {
+    width: 30px;
+    height: 30px;
+  }
+  .contact-form .form-actions {
+    flex-direction: column;
+  }
+  .contact-form .form-actions .btn,
+  .contact-form .form-actions .btn-secondary {
+    width: 100%;
+    flex: 1 1 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-sidebar { padding: 20px 16px 18px; }
+  .site-sidebar .brand img { width: 110px; }
+  .main-nav a { padding: 10px 12px; font-size: 0.9rem; }
+  .page-hero p { font-size: 0.96rem; }
+  .highlight-box, .info-card, .feature-card, .card {
+    padding: 16px;
+  }
 }
