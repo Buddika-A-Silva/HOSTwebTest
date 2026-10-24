@@ -3,35 +3,36 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Gallery | Leo Club of Colombo HOST</title>
-  <link rel="stylesheet" href="dist/assets/multipage.css" />
+  <title>Gallery | LEO CLUB OF COLOMBO (HOST)</title>
+  <link rel="stylesheet" href="dist/assets/heritage-theme.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="page-wrapper">
     <aside class="site-sidebar">
       <div class="sidebar-content">
         <a class="brand" href="index.html">
-          <img src="dist/assets/logo.png" alt="Leo Club of Colombo HOST logo" />
-          <span>LEO Club of Colombo HOST</span>
+          <img src="dist/assets/logo.png" alt="LEO CLUB OF COLOMBO (HOST) logo" />
+          <span>LEO CLUB OF COLOMBO (HOST)</span>
           <p>Since 1969</p>
         </a>
-        <nav class="main-nav">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
+          <span class="nav-toggle-label">Menu</span>
+          <span class="nav-toggle-icon" aria-hidden="true"><span></span><span></span></span>
+        </button>
+        <nav class="main-nav" id="site-navigation" aria-label="Main navigation">
           <a href="index.html">Home</a>
           <a href="about.html">Who We Are</a>
-          <a href="impact.html">Our Impact</a>
-          <a href="mission.html">Mission</a>
-          <a href="how-we-serve.html">How We Serve</a>
+          <a href="mission-impact.html">Mission &amp; Impact</a>
+          <a href="Our%20Services.html">Projects</a>
           <a href="leaders.html">Our Leaders</a>
-          <a href="gallery.html" class="active">Gallery</a>
+          <a href="gallery.html" class="active" aria-current="page">Gallery</a>
           <a href="contact.html">Get Connected</a>
         </nav>
       </div>
-      <div class="sidebar-footer">
-        <small>© LEO Club of Colombo HOST<br>By Arctic Technologies</small>
-      </div>
     </aside>
 
-    <main class="site-main">
+    <main class="site-main" id="main-content">
       <section class="page-hero">
         <div class="container">
           <p class="eyebrow">Gallery</p>
@@ -45,6 +46,10 @@
           <div class="gallery-grid" id="galleryGrid"></div>
         </div>
       </section>
+      <footer class="site-footer">
+      <small>© LEO CLUB OF COLOMBO (HOST)</small>
+      <small><a href="https://arctictechnologies.org.lk/" target="_blank" rel="noopener noreferrer">By Arctic Technologies</a></small>
+      </footer>
     </main>
   </div>
 
@@ -105,5 +110,6 @@
     close.addEventListener('click', closeModal);
     modal.addEventListener('click', closeModal);
   </script>
+  <script src="dist/assets/site-navigation.js" defer></script>
 </body>
 </html>

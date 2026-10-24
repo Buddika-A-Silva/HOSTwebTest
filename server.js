@@ -112,7 +112,29 @@ function sendUserConfirmation({ name, email, message }) {
 }
 
 const server = http.createServer((req, res) => {
-  if (req.url === '/contact' && req.method === 'POST') {
+  let requestUrl;
+  let requestPath;
+  try {
+    requestUrl = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
+    requestPath = decodeURIComponent(requestUrl.pathname);
+  } catch (error) {
+    res.writeHead(400, { 'Content-Type': 'text/plain' });
+    res.end('Bad Request');
+    return;
+  }
+
+  const redirects = {
+    '/impact.html': '/mission-impact.html',
+    '/mission.html': '/mission-impact.html',
+    '/how-we-serve.html': '/Our%20Services.html',
+  };
+  if (redirects[requestPath]) {
+    res.writeHead(301, { Location: `${redirects[requestPath]}${requestUrl.search}` });
+    res.end();
+    return;
+  }
+
+  if (requestPath === '/contact' && req.method === 'POST') {
     parseRequestBody(req, async (body) => {
       const name = (body.name || '').trim();
       const email = (body.email || '').trim();
@@ -140,9 +162,10 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  let filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
+  const requestedFile = requestPath === '/' ? 'index.html' : requestPath.replace(/^[/\\]+/, '');
+  const filePath = path.resolve(__dirname, requestedFile);
 
-  if (!filePath.startsWith(__dirname)) {
+  if (path.relative(__dirname, filePath).startsWith('..')) {
     res.writeHead(403);
     res.end('Forbidden');
     return;

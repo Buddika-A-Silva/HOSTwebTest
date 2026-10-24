@@ -7,6 +7,26 @@
   },
   "routes": [
     {
+      "route": "/impact.html",
+      "redirect": "/mission-impact.html",
+      "statusCode": 301
+    },
+    {
+      "route": "/mission.html",
+      "redirect": "/mission-impact.html",
+      "statusCode": 301
+    },
+    {
+      "route": "/how-we-serve.html",
+      "redirect": "/Our%20Services.html",
+      "statusCode": 301
+    },
+    {
+      "route": "/Our%20Services.html",
+      "serve": "Our Services.html",
+      "statusCode": 200
+    },
+    {
       "route": "*.html",
       "serve": "*.html",
       "statusCode": 200

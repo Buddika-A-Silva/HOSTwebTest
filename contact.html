@@ -3,35 +3,36 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Get Connected | Leo Club of Colombo HOST</title>
-  <link rel="stylesheet" href="dist/assets/multipage.css" />
+  <title>Get Connected | LEO CLUB OF COLOMBO (HOST)</title>
+  <link rel="stylesheet" href="dist/assets/heritage-theme.css" />
 </head>
 <body class="content-left">
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="page-wrapper">
     <aside class="site-sidebar">
       <div class="sidebar-content">
         <a class="brand" href="index.html">
-          <img src="dist/assets/logo.png" alt="Leo Club of Colombo HOST logo" />
-          <span>LEO Club of Colombo HOST</span>
+          <img src="dist/assets/logo.png" alt="LEO CLUB OF COLOMBO (HOST) logo" />
+          <span>LEO CLUB OF COLOMBO (HOST)</span>
           <p>Since 1969</p>
         </a>
-        <nav class="main-nav">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
+          <span class="nav-toggle-label">Menu</span>
+          <span class="nav-toggle-icon" aria-hidden="true"><span></span><span></span></span>
+        </button>
+        <nav class="main-nav" id="site-navigation" aria-label="Main navigation">
           <a href="index.html">Home</a>
           <a href="about.html">Who We Are</a>
-          <a href="impact.html">Our Impact</a>
-          <a href="mission.html">Mission</a>
-          <a href="how-we-serve.html">How We Serve</a>
+          <a href="mission-impact.html">Mission &amp; Impact</a>
+          <a href="Our%20Services.html">Projects</a>
           <a href="leaders.html">Our Leaders</a>
           <a href="gallery.html">Gallery</a>
-          <a href="contact.html" class="active">Get Connected</a>
+          <a href="contact.html" class="active" aria-current="page">Get Connected</a>
         </nav>
-      </div>
-      <div class="sidebar-footer">
-        <small>© LEO Club of Colombo HOST<br>By Arctic Technologies</small>
       </div>
     </aside>
 
-    <main class="site-main">
+    <main class="site-main" id="main-content">
       <section class="page-hero">
         <div class="container">
           <div class="hero-copy">
@@ -46,8 +47,8 @@
           <div class="section-content-grid">
             <div class="content-text">
               <h2>Contact & Visit</h2>
-              <p>General enquiries: <a href="mailto:info@leoHOST.org" style="color:#c99d4f;font-weight:700;">info@leoHOST.org</a></p>
-              <p>Phone / WhatsApp: <strong>+94 71 000 0000</strong></p>
+              <p>General enquiries: <a href="mailto:leoclubofcolombohost1969@gmail.com" style="color:#c99d4f;font-weight:700;">leoclubofcolombohost1969@gmail.com</a></p>
+              <p>Phone / WhatsApp: <strong>+94 77 197 2325</strong></p>
               <p>Office (by appointment): <strong>Colombo, Sri Lanka</strong></p>
               <div class="highlight-box">
                 <h3>Volunteer or Partner</h3>
@@ -56,14 +57,16 @@
             </div>
 
             <div class="image-box">
-              <form id="contact-form" class="card contact-form" style="display:block;" method="post" action="/contact">
+              <form id="contact-form" class="card contact-form" style="display:block;" method="post" action="/api/contact">
                 <h3 style="margin-top:0;color:#ffffff;">Quick message</h3>
-                <label style="display:block;margin:10px 0 6px;color:#f1e7d7;">Name</label>
-                <input type="text" name="name" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02);color:var(--text);" />
-                <label style="display:block;margin:10px 0 6px;color:#f1e7d7;">Email</label>
-                <input type="email" name="email" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02);color:var(--text);" />
-                <label style="display:block;margin:10px 0 6px;color:#f1e7d7;">Message</label>
-                <textarea name="message" rows="5" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02);color:var(--text);"></textarea>
+                <label for="contact-name" style="display:block;margin:10px 0 6px;color:#f1e7d7;">Name</label>
+                <input id="contact-name" type="text" name="name" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02);color:var(--text);" />
+                <label for="contact-email" style="display:block;margin:10px 0 6px;color:#f1e7d7;">Email</label>
+                <input id="contact-email" type="email" name="email" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02);color:var(--text);" />
+                <label for="contact-phone" style="display:block;margin:10px 0 6px;color:#f1e7d7;">Phone</label>
+                <input id="contact-phone" type="tel" name="phone" placeholder="Optional" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02);color:var(--text);" />
+                <label for="contact-message" style="display:block;margin:10px 0 6px;color:#f1e7d7;">Message</label>
+                <textarea id="contact-message" name="message" rows="5" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02);color:var(--text);"></textarea>
                 <div class="form-actions">
                   <button class="btn" type="submit">Send Message</button>
                   <a class="btn btn-secondary" href="about.html">Learn More</a>
@@ -79,7 +82,7 @@
         <div class="container">
           <div class="section-content-grid">
             <div class="content-text">
-              <p>Email: <a href="mailto:info@leoHOST.org" style="color:#c99d4f; font-weight:700;">info@leoHOST.org</a></p>
+              <p>Email: <a href="mailto:leoclubofcolombohost1969@gmail.com" style="color:#c99d4f; font-weight:700;">leoclubofcolombohost1969@gmail.com</a></p>
               <p>Stay connected with a club that honours its past while building a smarter, more impactful future. Follow our journey, join our events, and become part of a legacy that continues to grow.</p>
               <div class="highlight-box">
                 <h3>Be part of the next chapter</h3>
@@ -124,6 +127,10 @@
           </div>
         </div>
       </section>
+      <footer class="site-footer">
+      <small>© LEO CLUB OF COLOMBO (HOST)</small>
+      <small><a href="https://arctictechnologies.org.lk/" target="_blank" rel="noopener noreferrer">By Arctic Technologies</a></small>
+      </footer>
     </main>
   </div>
   <script>
@@ -158,5 +165,6 @@
       });
     }
   </script>
+  <script src="dist/assets/site-navigation.js" defer></script>
 </body>
 </html>
