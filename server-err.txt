@@ -1,0 +1,9 @@
+Email error: Error: Azure Communication Email client is not configured. Set AZURE_COMMUNICATION_CONNECTION_STRING or AZURE_COMMUNICATION_ENDPOINT and AZURE_COMMUNICATION_ACCESS_KEY.
+    at ensureEmailClient (C:\Users\BuddikaSilva\Downloads\HOSTwebTest-main\Host-WebSite\server.js:27:11)
+    at sendAcsEmail (C:\Users\BuddikaSilva\Downloads\HOSTwebTest-main\Host-WebSite\server.js:32:3)
+    at sendContactNotification (C:\Users\BuddikaSilva\Downloads\HOSTwebTest-main\Host-WebSite\server.js:84:10)
+    at C:\Users\BuddikaSilva\Downloads\HOSTwebTest-main\Host-WebSite\server.js:128:15
+    at IncomingMessage.<anonymous> (C:\Users\BuddikaSilva\Downloads\HOSTwebTest-main\Host-WebSite\server.js:52:9)
+    at IncomingMessage.emit (node:events:508:28)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)

@@ -56,18 +56,19 @@
             </div>
 
             <div class="image-box">
-              <form class="card contact-form" style="display:block;">
+              <form id="contact-form" class="card contact-form" style="display:block;" method="post" action="/contact">
                 <h3 style="margin-top:0;color:#ffffff;">Quick message</h3>
                 <label style="display:block;margin:10px 0 6px;color:#f1e7d7;">Name</label>
-                <input type="text" name="name" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02);color:var(--text);" />
+                <input type="text" name="name" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02);color:var(--text);" />
                 <label style="display:block;margin:10px 0 6px;color:#f1e7d7;">Email</label>
-                <input type="email" name="email" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02);color:var(--text);" />
+                <input type="email" name="email" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02);color:var(--text);" />
                 <label style="display:block;margin:10px 0 6px;color:#f1e7d7;">Message</label>
-                <textarea name="message" rows="5" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02);color:var(--text);"></textarea>
+                <textarea name="message" rows="5" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02);color:var(--text);"></textarea>
                 <div class="form-actions">
                   <button class="btn" type="submit">Send Message</button>
                   <a class="btn btn-secondary" href="about.html">Learn More</a>
                 </div>
+                <div id="contact-status" aria-live="polite" style="margin-top:16px;color:#fff;font-weight:600;"></div>
               </form>
             </div>
           </div>
@@ -125,5 +126,37 @@
       </section>
     </main>
   </div>
+  <script>
+    const contactForm = document.getElementById('contact-form');
+    const contactStatus = document.getElementById('contact-status');
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        contactStatus.textContent = 'Sending message...';
+
+        const formData = new FormData(contactForm);
+        const payload = new URLSearchParams(formData);
+
+        try {
+          const response = await fetch(contactForm.action, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: payload,
+          });
+
+          const result = await response.json();
+          if (response.ok) {
+            contactStatus.textContent = 'Message sent successfully. Thank you!';
+            contactForm.reset();
+          } else {
+            contactStatus.textContent = result.error || 'Unable to send message. Please try again later.';
+          }
+        } catch (error) {
+          contactStatus.textContent = 'Unable to send message. Please try again later.';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
