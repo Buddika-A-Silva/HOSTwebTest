@@ -5218,6 +5218,15 @@ body {
 }
 
 /* HOST's original immersive landing treatment; the club's copy and imagery stay unchanged. */
+.home .page-wrapper {
+  width: 100%;
+  max-width: none;
+}
+
+body.home {
+  background: #071525;
+}
+
 .home .site-main {
   color: #f8f4e9;
   background: #071525;
