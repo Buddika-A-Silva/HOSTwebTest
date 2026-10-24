@@ -91,8 +91,7 @@ iframe {
   z-index: auto;
   display: flex;
   min-height: 100vh;
-  max-width: 1720px;
-  margin: 0 auto;
+  width: 100%;
   background: var(--color-paper);
 }
 
@@ -2002,7 +2001,6 @@ a:hover {
 }
 
 .page-wrapper {
-  max-width: 1720px;
   overflow: clip;
   background: transparent;
 }
@@ -5218,11 +5216,6 @@ body {
 }
 
 /* HOST's original immersive landing treatment; the club's copy and imagery stay unchanged. */
-.home .page-wrapper {
-  width: 100%;
-  max-width: none;
-}
-
 body.home {
   background: #071525;
 }
