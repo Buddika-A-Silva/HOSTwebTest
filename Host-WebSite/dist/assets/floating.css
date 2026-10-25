@@ -1,0 +1,41 @@
+/* Floating background images styles */
+.floating-images{position:absolute;left:0;top:0;right:0;bottom:0;pointer-events:none;z-index:0;overflow:visible}
+.floating-img{position:absolute;will-change:transform,opacity;pointer-events:none;opacity:0.60;filter:blur(1px);max-width:1400px;max-height:1400px;transform-origin:center center;mix-blend-mode:screen;transform:translate(-50%,-50%)}
+.floating-img.small{max-width:300px;max-height:300px}
+.floating-img.medium{max-width:700px;max-height:700px}
+.floating-img.large{max-width:1400px;max-height:1400px}
+
+@keyframes floatAround {
+  0%{transform:translate3d(var(--x,0),var(--y,0),0) translateY(0) rotate(0deg)}
+  50%{transform:translate3d(calc(var(--x,0) + 8px),calc(var(--y,0) - 28px),0) translateY(-18px) rotate(8deg)}
+  100%{transform:translate3d(var(--x,0),var(--y,0),0) translateY(0) rotate(0deg)}
+}
+
+.floating-img{animation-name:floatAround;animation-timing-function:ease-in-out;animation-iteration-count:infinite;animation-duration:var(--dur,36s);animation-delay:var(--delay,0s);will-change:transform}
+
+@media (max-width:900px){
+  .floating-img{opacity:0.16;filter:blur(6px);display:none}
+}
+
+.floating-images.visible-debug .floating-img{opacity:0.98;filter:none;mix-blend-mode:normal;box-shadow:0 12px 60px rgba(0,0,0,0.45)}
+/* ensure images are visually distinct in debug mode */
+.floating-images.visible-debug .floating-img{opacity:0.98;filter:none;mix-blend-mode:normal;box-shadow:0 18px 80px rgba(0,0,0,0.55)}
+.floating-images.visible-debug{outline: none}
+
+/* Slideshow (replaces floating images) */
+/* Slideshow sits full-bleed under the hero content and presents a rotated image on the right */
+.slideshow{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:visible;display:block}
+.slideshow .slide{position:absolute;right:-8%;top:-10%;width:60%;height:120%;object-fit:cover;opacity:0;filter:blur(2px);mix-blend-mode:screen;transform:rotate(-8deg);transition:opacity 1.2s ease,filter 1.2s ease}
+.slideshow .slide.show{opacity:1;filter:none}
+@keyframes slideFade {
+  0%{opacity:0}
+  10%{opacity:1}
+  40%{opacity:1}
+  50%{opacity:0}
+  100%{opacity:0}
+}
+.slideshow .slide{animation-name:slideFade;animation-timing-function:linear;animation-iteration-count:infinite;animation-duration:var(--total,36s);animation-delay:var(--delay,0s)}
+
+@media (max-width:900px){
+  .slideshow .slide{display:none}
+}
